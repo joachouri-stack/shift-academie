@@ -1,0 +1,27 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 720px;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.title {
+  font-size: var(--fs-h2);
+}
+
+.lead {
+  margin-top: var(--space-1);
+}
+
+.dark .title {
+  color: var(--blanc-pure);
+}
+.dark .lead {
+  color: var(--text-on-dark-muted);
+}

@@ -1,0 +1,151 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 680px;
+  margin-bottom: var(--space-8);
+}
+
+.title {
+  font-size: var(--fs-h2);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.cardWrap {
+  display: flex;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: clamp(22px, 3vw, 30px);
+  background: var(--surface-card);
+  border: 1px solid var(--gris-line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease);
+}
+.card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--or-deep);
+  margin-bottom: var(--space-3);
+}
+
+.cardTitle {
+  font-size: var(--fs-h3);
+}
+
+.cardText {
+  margin-top: var(--space-3);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Contact référent */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-7);
+  padding: clamp(28px, 4vw, 48px);
+  background: var(--noir);
+  color: var(--blanc);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.contactEyebrow {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--or);
+}
+
+.contactName {
+  margin-top: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  color: var(--blanc-pure);
+}
+
+.contactRole {
+  margin-top: 0.3em;
+  font-size: var(--fs-sm);
+  color: var(--text-on-dark-muted);
+}
+
+.contactNote {
+  margin-top: var(--space-4);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--text-on-dark-muted);
+  max-width: 360px;
+}
+
+.contactActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contactLink {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-md);
+  transition: border-color var(--t) var(--ease), background-color var(--t) var(--ease);
+}
+.contactLink:hover {
+  border-color: rgba(var(--or-rgb), 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.contactLabel {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--or-soft);
+}
+
+.contactValue {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--blanc);
+  word-break: break-word;
+}
+
+@media (min-width: 560px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 920px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .contact {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+}

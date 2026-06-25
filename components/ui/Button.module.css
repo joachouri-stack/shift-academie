@@ -1,0 +1,109 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  border-radius: var(--r-pill);
+  border: 1.5px solid transparent;
+  transition: background-color var(--t) var(--ease),
+    border-color var(--t) var(--ease), color var(--t) var(--ease),
+    transform var(--t-fast) var(--ease), box-shadow var(--t) var(--ease);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Sizes */
+.sm {
+  font-size: var(--fs-sm);
+  padding: 0.6rem 1.1rem;
+}
+.md {
+  font-size: var(--fs-sm);
+  padding: 0.85rem 1.6rem;
+}
+.lg {
+  font-size: var(--fs-body);
+  padding: 1.05rem 2rem;
+}
+
+.full {
+  width: 100%;
+}
+
+.arrow {
+  transition: transform var(--t) var(--ease);
+  font-size: 1.1em;
+}
+.btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* --- Variants --- */
+
+/* Noir, accent or au survol — CTA principal premium */
+.primary {
+  background: var(--noir);
+  color: var(--blanc);
+  box-shadow: var(--shadow-md);
+}
+.primary:hover {
+  background: #15151d;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Accent sectoriel (orange BTP) */
+.accent {
+  background: var(--accent);
+  color: var(--blanc-pure);
+  box-shadow: 0 12px 30px -12px rgba(var(--accent-rgb), 0.6);
+}
+.accent:hover {
+  background: var(--accent-deep);
+}
+
+/* Or — premium doré */
+.gold {
+  background: linear-gradient(135deg, var(--or-soft), var(--or-deep));
+  color: var(--noir);
+  box-shadow: var(--shadow-gold);
+}
+.gold:hover {
+  filter: brightness(1.04);
+}
+
+/* Contour */
+.outline {
+  background: transparent;
+  border-color: var(--gris-line);
+  color: var(--text-strong);
+}
+.outline:hover {
+  border-color: var(--noir);
+  background: var(--blanc-pure);
+}
+
+/* Fantôme */
+.ghost {
+  background: transparent;
+  color: var(--text-strong);
+}
+.ghost:hover {
+  background: var(--gris-line-2);
+}
+
+/* Clair (sur fond sombre) */
+.light {
+  background: var(--blanc-pure);
+  color: var(--noir);
+}
+.light:hover {
+  background: var(--blanc);
+}

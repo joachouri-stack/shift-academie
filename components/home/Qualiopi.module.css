@@ -1,0 +1,117 @@
+.section {
+  padding-block: var(--section-y);
+  background: var(--blanc-pure);
+  border-block: 1px solid var(--gris-line);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(36px, 5vw, 64px);
+  align-items: center;
+}
+
+.content {
+  max-width: 560px;
+}
+
+.title {
+  margin-top: var(--space-4);
+  font-size: var(--fs-h2);
+}
+
+.text {
+  margin-top: var(--space-4);
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.qualiopi {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  border: 1px solid var(--gris-line);
+  border-radius: var(--r-md);
+  background: var(--blanc);
+}
+
+.qLogo {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  color: var(--blanc-pure);
+  background: linear-gradient(135deg, var(--or-deep), var(--noir));
+  padding: 0.7em 1em;
+  border-radius: var(--r-sm);
+}
+
+.qText {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.qText strong {
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+/* Carte badges */
+.badgeCard {
+  background: var(--blanc);
+  border: 1px solid var(--gris-line);
+  border-radius: var(--r-lg);
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--shadow-sm);
+}
+
+.badgeTitle {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-5);
+}
+
+.badgeGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.badgeItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-strong);
+  padding: 0.85rem 1rem;
+  background: var(--blanc-pure);
+  border: 1px solid var(--gris-line);
+  border-radius: var(--r-md);
+}
+
+.badgeIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(var(--or-rgb), 0.14);
+  color: var(--or-deep);
+}
+
+@media (min-width: 560px) {
+  .badgeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 920px) {
+  .inner {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}

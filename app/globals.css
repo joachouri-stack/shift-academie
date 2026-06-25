@@ -1,0 +1,321 @@
+/* ==========================================================================
+   [Shift] Académie — Design System
+   Tokens, base reset, typographie, utilitaires.
+   Identité : noir · or · blanc cassé. --accent = couleur sectorielle.
+   ========================================================================== */
+
+:root {
+  /* --- Palette identité --- */
+  --noir: #0a0a0f;
+  --or: #c9a84c;
+  --or-soft: #d8bb6a;
+  --or-deep: #a88736;
+
+  --blanc: #f8f6f1;
+  --blanc-pure: #ffffff;
+
+  --gris: #2a2a35;
+  --gris-2: #3a3a47;
+  --gris-3: #5a5a68;
+  --gris-line: #e6e1d6;
+  --gris-line-2: #efeae0;
+
+  /* --accent : sectoriel (actuellement BTP orange). Modifiable par secteur. */
+  --accent: #e8610a;
+  --accent-deep: #c4500a;
+
+  /* --- Texte --- */
+  --text-strong: var(--noir);
+  --text: #1f1f29;
+  --text-muted: #5a5a68;
+  --text-on-dark: var(--blanc);
+  --text-on-dark-muted: #b8b4a8;
+
+  /* --- Surfaces --- */
+  --bg: var(--blanc);
+  --bg-pure: var(--blanc-pure);
+  --bg-dark: var(--noir);
+  --surface-card: var(--blanc-pure);
+
+  /* --- Rayons --- */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 26px;
+  --r-xl: 36px;
+  --r-pill: 999px;
+
+  /* --- Ombres (douces, premium) --- */
+  --shadow-xs: 0 1px 2px rgba(10, 10, 15, 0.04);
+  --shadow-sm: 0 2px 8px rgba(10, 10, 15, 0.05);
+  --shadow-md: 0 10px 30px -12px rgba(10, 10, 15, 0.12);
+  --shadow-lg: 0 24px 60px -20px rgba(10, 10, 15, 0.18);
+  --shadow-gold: 0 14px 40px -16px rgba(168, 135, 54, 0.45);
+
+  /* --- Espacements (échelle 4px) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* --- Layout --- */
+  --container: 1200px;
+  --container-narrow: 880px;
+  --header-h: 76px;
+  --gutter: clamp(20px, 5vw, 48px);
+
+  /* --- Section vertical rhythm (responsive) --- */
+  --section-y: clamp(64px, 9vw, 128px);
+
+  /* --- Typographie --- */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+
+  /* Échelle fluide (clamp = pas de saut entre breakpoints) */
+  --fs-display: clamp(2.4rem, 1.4rem + 4.4vw, 4.5rem);
+  --fs-h1: clamp(2rem, 1.3rem + 3vw, 3.4rem);
+  --fs-h2: clamp(1.6rem, 1.15rem + 2vw, 2.6rem);
+  --fs-h3: clamp(1.25rem, 1.05rem + 0.9vw, 1.6rem);
+  --fs-lead: clamp(1.05rem, 0.98rem + 0.45vw, 1.3rem);
+  --fs-body: 1.0625rem;
+  --fs-sm: 0.9375rem;
+  --fs-xs: 0.8125rem;
+  --fs-eyebrow: 0.78rem;
+
+  /* --- Transitions --- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 150ms;
+  --t: 240ms;
+  --t-slow: 420ms;
+
+  /* --- Z-index --- */
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+
+  /* derive accent rgb for soft tints */
+  --accent-rgb: 232, 97, 10;
+  --or-rgb: 201, 168, 76;
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   Reset moderne
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* compense le header sticky lors des ancres */
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  -webkit-tap-highlight-color: transparent;
+  /* garde-fou anti-scroll horizontal (clip n'empêche pas position: sticky) */
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* évite le décalage horizontal global */
+  overflow-x: clip;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-strong);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--or);
+  color: var(--noir);
+}
+
+/* ==========================================================================
+   Utilitaires layout
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--or-deep);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1.5px;
+  background: var(--or);
+  display: inline-block;
+}
+
+.eyebrow--center::before {
+  display: none;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Accessibilité : masquer visuellement sans masquer aux lecteurs d'écran */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: -100px;
+  transform: translateX(-50%);
+  z-index: var(--z-modal);
+  background: var(--noir);
+  color: var(--blanc);
+  padding: 12px 22px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  transition: top var(--t) var(--ease);
+}
+
+.skip-link:focus {
+  top: 14px;
+}
+
+/* ==========================================================================
+   Reveal à l'apparition (léger, sans layout shift, respecte reduced-motion)
+   ========================================================================== */
+
+/* Sans JS, le contenu reste visible (amélioration progressive). */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

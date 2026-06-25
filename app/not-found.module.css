@@ -1,0 +1,50 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
+  padding-block: var(--section-y);
+  text-align: center;
+}
+
+.wrap .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.code {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 3rem + 8vw, 8rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--or-deep);
+  letter-spacing: -0.03em;
+}
+
+.title {
+  margin-top: var(--space-4);
+  font-size: var(--fs-h2);
+}
+
+.text {
+  margin-top: var(--space-3);
+  max-width: 440px;
+  color: var(--text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.link {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
