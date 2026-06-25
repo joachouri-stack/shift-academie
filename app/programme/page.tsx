@@ -9,102 +9,215 @@ import styles from "./programme.module.css";
 export const metadata: Metadata = {
   title: "Programme — Créer son entreprise",
   description:
-    "Programme complet de la formation « Créer son entreprise » : objectifs, modules, public, prérequis, durée, financement et accessibilité.",
+    "Programme détaillé (14h, 2 jours) : créer, lancer et développer une activité indépendante grâce à l'IA. Objectifs, modules, outils, financement et accessibilité.",
 };
 
-const infos = [
-  { label: "Public concerné", value: programme.public },
-  { label: "Prérequis", value: programme.prerequis },
+const facts = [
   { label: "Durée", value: programme.duree },
   { label: "Format", value: programme.format },
-  { label: "Moyens techniques", value: programme.moyens },
+  { label: "Niveau", value: "Aucun prérequis en IA" },
+  { label: "À la clé", value: "Attestation de fin de formation" },
+];
+
+const infos = [
+  { label: "Durée", value: programme.duree },
+  { label: "Format", value: programme.format },
   { label: "Accessibilité handicap", value: programme.accessibilite },
-  { label: "Certification / attestation", value: programme.certification },
+  { label: "Validation", value: programme.validation },
   { label: "Financement possible", value: programme.financement },
 ];
+
+function CheckList({
+  items,
+  variant = "check",
+}: {
+  items: readonly string[];
+  variant?: "check" | "dot";
+}) {
+  if (variant === "dot") {
+    return (
+      <ul className={styles.bullets}>
+        {items.map((i) => (
+          <li key={i}>{i}</li>
+        ))}
+      </ul>
+    );
+  }
+  return (
+    <ul className={styles.objList}>
+      {items.map((i) => (
+        <li key={i}>
+          <span className={styles.check} aria-hidden="true">
+            <svg viewBox="0 0 16 16" width="14" height="14">
+              <path
+                d="M3.5 8.5l3 3 6-7"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          {i}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function ProgrammePage() {
   return (
     <>
       <PageHero
-        eyebrow="Programme"
+        eyebrow="Programme · 14 h"
         title={programme.titre}
-        lead={programme.intro}
+        lead={`${programme.titreLong}. ${programme.intro}`}
         breadcrumb={[{ label: "Accueil", href: "/" }, { label: "Programme" }]}
       />
 
       <div className="section">
         <div className="container">
-          <BadgeRow items={badges} />
-
-          {/* Objectifs */}
-          <Reveal className={styles.objectives}>
-            <h2 className={styles.h2}>Objectifs de la formation</h2>
-            <ul className={styles.objList}>
-              {programme.objectifs.map((o) => (
-                <li key={o}>
-                  <span className={styles.check} aria-hidden="true">
-                    <svg viewBox="0 0 16 16" width="14" height="14">
-                      <path
-                        d="M3.5 8.5l3 3 6-7"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                  {o}
-                </li>
-              ))}
-            </ul>
+          {/* Faits clés */}
+          <Reveal as="ul" className={styles.facts}>
+            {facts.map((f) => (
+              <li key={f.label} className={styles.fact}>
+                <span className={styles.factLabel}>{f.label}</span>
+                <span className={styles.factValue}>{f.value}</span>
+              </li>
+            ))}
           </Reveal>
 
-          {/* Modules */}
-          <div className={styles.modulesHead}>
-            <h2 className={styles.h2}>Le déroulé, module par module</h2>
-            <p className="lead">
-              Un parcours progressif, du cadrage de votre projet jusqu&rsquo;au
-              lancement de votre activité.
-            </p>
+          <div className={styles.badgesWrap}>
+            <BadgeRow items={badges} />
           </div>
 
-          <ol className={styles.modules}>
-            {programme.modules.map((m, i) => (
-              <Reveal key={m.num} as="li" className={styles.module} delay={i * 50}>
-                <div className={styles.moduleNum}>{m.num}</div>
-                <div className={styles.moduleBody}>
-                  <h3 className={styles.moduleTitle}>{m.titre}</h3>
-                  <ul className={styles.modulePoints}>
-                    {m.points.map((p) => (
-                      <li key={p}>{p}</li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            ))}
-          </ol>
+          {/* Objectifs */}
+          <Reveal className={styles.block}>
+            <h2 className={styles.h2}>Objectifs de la formation</h2>
+            <p className="lead">
+              À l&rsquo;issue de la formation, le participant sera capable de :
+            </p>
+            <CheckList items={programme.objectifs} />
+          </Reveal>
 
-          {/* Pédagogie + évaluation */}
+          {/* Public + Prérequis */}
           <div className={styles.twoCol}>
             <Reveal className={styles.panel}>
-              <h3 className={styles.h3}>Modalités pédagogiques</h3>
-              <ul className={styles.bullets}>
-                {programme.pedagogie.map((p) => (
+              <h3 className={styles.h3}>Public concerné</h3>
+              <ul className={styles.chips}>
+                {programme.public.map((p) => (
                   <li key={p}>{p}</li>
                 ))}
               </ul>
             </Reveal>
             <Reveal className={styles.panel} delay={60}>
-              <h3 className={styles.h3}>Modalités d&rsquo;évaluation</h3>
-              <ul className={styles.bullets}>
-                {programme.evaluation.map((p) => (
-                  <li key={p}>{p}</li>
-                ))}
-              </ul>
+              <h3 className={styles.h3}>Prérequis</h3>
+              <CheckList items={programme.prerequis} variant="dot" />
             </Reveal>
           </div>
+
+          {/* Modules par jour */}
+          <div className={styles.block}>
+            <h2 className={styles.h2}>Le déroulé, module par module</h2>
+            <p className="lead">
+              Deux journées, dix modules : de la structuration du projet
+              jusqu&rsquo;à vos premiers clients.
+            </p>
+          </div>
+
+          {programme.jours.map((jour, ji) => (
+            <section key={jour.label} className={styles.jour}>
+              <Reveal className={styles.jourHead}>
+                <span className={styles.jourLabel}>{jour.label}</span>
+                <h3 className={styles.jourTitle}>{jour.titre}</h3>
+                <span className={styles.jourDuree}>{jour.duree}</span>
+              </Reveal>
+
+              <ol className={styles.modules}>
+                {jour.modules.map((m, i) => (
+                  <Reveal
+                    key={m.num}
+                    as="li"
+                    className={styles.module}
+                    delay={i * 40}
+                  >
+                    <div className={styles.moduleHead}>
+                      <span className={styles.moduleNum}>{m.num}</span>
+                      <h4 className={styles.moduleTitle}>{m.titre}</h4>
+                    </div>
+
+                    <div className={styles.moduleBody}>
+                      {m.objectifs && (
+                        <div className={styles.moduleGroup}>
+                          <span className={styles.groupLabel}>Objectifs</span>
+                          <CheckList items={m.objectifs} variant="dot" />
+                        </div>
+                      )}
+
+                      <div className={styles.moduleGroup}>
+                        <span className={styles.groupLabel}>
+                          {m.contenuTitre ?? "Contenu"}
+                        </span>
+                        <CheckList items={m.contenu} variant="dot" />
+                      </div>
+
+                      {m.casPratiques && (
+                        <div className={styles.moduleGroup}>
+                          <span className={styles.groupLabel}>
+                            {m.casPratiquesTitre ?? "Cas pratiques"}
+                          </span>
+                          <CheckList items={m.casPratiques} variant="dot" />
+                        </div>
+                      )}
+
+                      {m.outils && (
+                        <div className={styles.outils}>
+                          <span className={styles.groupLabel}>Outils</span>
+                          <ul className={styles.outilsList}>
+                            {m.outils.map((o) => (
+                              <li key={o}>{o}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </Reveal>
+                ))}
+              </ol>
+              {ji === 0 && <div className={styles.jourSep} aria-hidden="true" />}
+            </section>
+          ))}
+
+          {/* Pédagogie + Moyens */}
+          <div className={styles.twoCol}>
+            <Reveal className={styles.panel}>
+              <h3 className={styles.h3}>Méthodes pédagogiques</h3>
+              <CheckList items={programme.pedagogie} variant="dot" />
+            </Reveal>
+            <Reveal className={styles.panel} delay={60}>
+              <h3 className={styles.h3}>Moyens pédagogiques</h3>
+              <CheckList items={programme.moyens} variant="dot" />
+            </Reveal>
+          </div>
+
+          {/* Évaluation + Suivi */}
+          <div className={styles.twoCol}>
+            <Reveal className={styles.panel}>
+              <h3 className={styles.h3}>Modalités d&rsquo;évaluation</h3>
+              <CheckList items={programme.evaluation} variant="dot" />
+            </Reveal>
+            <Reveal className={styles.panel} delay={60}>
+              <h3 className={styles.h3}>Modalités de suivi</h3>
+              <CheckList items={programme.suivi} variant="dot" />
+            </Reveal>
+          </div>
+
+          {/* Documents remis */}
+          <Reveal className={styles.block}>
+            <h2 className={styles.h2}>Documents remis aux participants</h2>
+            <CheckList items={programme.documents} />
+          </Reveal>
 
           {/* Infos pratiques */}
           <h2 className={styles.h2}>Informations pratiques</h2>

@@ -67,9 +67,9 @@ export const formations: Formation[] = [
     resume:
       "Structurez votre projet, choisissez le bon statut, montez votre offre et automatisez votre administratif grâce à des outils d'intelligence artificielle simples et concrets.",
     formats: ["Présentiel — Avignon", "Distanciel"],
-    duree: "À définir selon la session",
+    duree: "14 heures (2 jours)",
     niveau: "Accessible aux débutants",
-    certification: "Attestation de formation · RS6776",
+    certification: "Attestation de fin de formation",
     disponible: true,
   },
 ];
@@ -189,100 +189,269 @@ export const faq = [
 ] as const;
 
 /* --- Programme de la formation « Créer son entreprise » --- */
+export type ProgrammeModule = {
+  num: string;
+  titre: string;
+  objectifs?: string[];
+  contenu: string[];
+  contenuTitre?: string;
+  casPratiques?: string[];
+  casPratiquesTitre?: string;
+  outils?: string[];
+};
+
 export const programme = {
   titre: "Créer son entreprise",
+  titreLong:
+    "Créer, lancer et développer une activité indépendante grâce à l'intelligence artificielle",
+  sousTitre: "De l'idée aux premiers clients.",
   intro:
-    "Un parcours complet pour passer de l'idée au lancement, en s'appuyant sur l'intelligence artificielle pour gagner du temps à chaque étape.",
-  objectifs: [
-    "Clarifier et structurer son projet d'entreprise.",
-    "Choisir le statut juridique adapté à sa situation.",
-    "Construire une offre claire et un positionnement solide.",
-    "Utiliser des outils d'IA simples pour gagner du temps au quotidien.",
-    "Automatiser les tâches administratives répétitives.",
-    "Lancer son activité avec un plan d'action concret.",
+    "Un parcours complet, de l'idée aux premiers clients, en s'appuyant sur l'intelligence artificielle pour gagner du temps à chaque étape. 14 heures, 100 % concrètes.",
+  duree: "14 heures (2 jours)",
+  format: "Présentiel et/ou distanciel",
+  public: [
+    "Porteurs de projet",
+    "Créateurs d'entreprise",
+    "Artisans",
+    "Commerçants",
+    "Prestataires de services",
+    "Professions libérales",
+    "Demandeurs d'emploi",
+    "Salariés en reconversion",
   ],
-  public:
-    "Futurs créateurs d'entreprise, indépendants, artisans, commerçants et professionnels de terrain souhaitant lancer ou structurer leur activité.",
-  prerequis:
-    "Aucun prérequis technique. Savoir utiliser un ordinateur ou un smartphone suffit.",
-  duree: "Durée précisée à chaque session (présentiel et/ou distanciel).",
-  format:
-    "Présentiel à Avignon et/ou distanciel via l'espace apprenant en ligne.",
+  prerequis: [
+    "Savoir utiliser un ordinateur.",
+    "Disposer d'une adresse e-mail.",
+    "Aucune compétence technique ou connaissance en IA n'est requise.",
+  ],
+  objectifs: [
+    "Structurer un projet entrepreneurial solide.",
+    "Définir son offre et son positionnement.",
+    "Identifier son marché et ses clients.",
+    "Utiliser efficacement l'IA pour gagner du temps.",
+    "Produire rapidement des contenus professionnels.",
+    "Créer ses premiers outils de communication.",
+    "Développer sa visibilité en ligne.",
+    "Trouver ses premiers clients.",
+    "Construire un plan d'action concret pour lancer ou développer son activité.",
+  ],
+  jours: [
+    {
+      titre: "Structurer son projet",
+      label: "Jour 1",
+      duree: "7 heures",
+      modules: [
+        {
+          num: "01",
+          titre: "Définir son projet entrepreneurial",
+          objectifs: [
+            "Identifier ses compétences.",
+            "Choisir une activité cohérente.",
+            "Définir son client idéal.",
+            "Construire une proposition de valeur claire.",
+          ],
+          contenu: [
+            "Trouver une idée de projet rentable.",
+            "Définir ses objectifs.",
+            "Identifier ses forces.",
+            "Déterminer son marché cible.",
+            "Comprendre les besoins de ses futurs clients.",
+          ],
+          outils: ["ChatGPT", "Perplexity"],
+        },
+        {
+          num: "02",
+          titre: "Étudier son marché grâce à l'IA",
+          objectifs: [
+            "Réaliser une étude de marché.",
+            "Identifier les concurrents.",
+            "Trouver des opportunités.",
+            "Déterminer son positionnement.",
+          ],
+          contenu: [
+            "Étude de marché assistée par IA.",
+            "Analyse concurrentielle.",
+            "Recherche d'opportunités.",
+            "Validation du projet.",
+          ],
+          outils: ["ChatGPT", "Google Trends", "Perplexity"],
+        },
+        {
+          num: "03",
+          titre: "Choisir son statut et organiser son activité",
+          contenu: [
+            "Les principaux statuts juridiques.",
+            "Les obligations administratives.",
+            "Les premières démarches.",
+            "Les assurances.",
+            "Les bases de la gestion d'entreprise.",
+            "Organisation quotidienne.",
+          ],
+        },
+        {
+          num: "04",
+          titre: "Construire son offre commerciale",
+          contenu: [
+            "Définir ses prestations.",
+            "Construire une offre attractive.",
+            "Déterminer ses tarifs.",
+            "Préparer ses premiers devis.",
+            "Structurer une proposition commerciale.",
+          ],
+          casPratiquesTitre: "Cas pratiques avec l'IA",
+          casPratiques: [
+            "Création de devis.",
+            "Rédaction de propositions commerciales.",
+            "Création d'emails professionnels.",
+            "Création de courriers administratifs.",
+          ],
+          outils: ["ChatGPT"],
+        },
+        {
+          num: "05",
+          titre: "Créer son identité professionnelle",
+          contenu: [
+            "Choisir un nom commercial.",
+            "Créer son identité visuelle.",
+            "Concevoir un logo.",
+            "Définir sa charte graphique.",
+            "Préparer ses premiers supports de communication.",
+          ],
+          outils: ["Canva", "ChatGPT"],
+        },
+      ] as ProgrammeModule[],
+    },
+    {
+      titre: "Développer son activité",
+      label: "Jour 2",
+      duree: "7 heures",
+      modules: [
+        {
+          num: "06",
+          titre: "Développer sa présence en ligne",
+          contenu: [
+            "Créer une fiche Google Business Profile.",
+            "Comprendre les réseaux sociaux.",
+            "Créer un site Internet.",
+            "Découvrir WordPress.",
+            "Optimiser sa visibilité locale.",
+          ],
+          outils: ["Google Business Profile", "Canva", "WordPress"],
+        },
+        {
+          num: "07",
+          titre: "Trouver ses premiers clients",
+          contenu: [
+            "Les méthodes de prospection.",
+            "Le bouche-à-oreille.",
+            "Les réseaux sociaux.",
+            "Les partenariats.",
+            "Les recommandations.",
+            "Les avis clients.",
+          ],
+          casPratiquesTitre: "Applications avec l'IA",
+          casPratiques: [
+            "Création de publications.",
+            "Réponses aux avis.",
+            "Rédaction de messages commerciaux.",
+            "Création de contenus.",
+          ],
+          outils: ["ChatGPT", "Canva"],
+        },
+        {
+          num: "08",
+          titre: "Automatiser son activité grâce à l'IA",
+          contenuTitre: "Découverte des principaux outils d'IA",
+          contenu: [
+            "Découvrir et prendre en main les outils d'IA du quotidien.",
+          ],
+          casPratiquesTitre: "Cas pratiques",
+          casPratiques: [
+            "Générer des devis.",
+            "Rédiger des emails.",
+            "Rédiger des courriers.",
+            "Générer des contenus.",
+            "Créer des visuels.",
+            "Automatiser des tâches répétitives.",
+            "Organiser son activité plus efficacement.",
+          ],
+          outils: ["ChatGPT", "Perplexity", "Canva IA"],
+        },
+        {
+          num: "09",
+          titre: "Suivre son activité et mesurer ses résultats",
+          contenu: [
+            "Les indicateurs essentiels.",
+            "Suivre ses performances.",
+            "Comprendre Google Analytics.",
+            "Découvrir Google Search Console.",
+            "Organiser son suivi commercial.",
+            "Construire un tableau de bord simple.",
+          ],
+          outils: ["Google Analytics", "Google Search Console"],
+        },
+        {
+          num: "10",
+          titre: "Construire son plan d'action",
+          contenuTitre: "Chaque participant repart avec",
+          contenu: [
+            "Son plan d'action personnalisé à 30 jours.",
+            "Ses prochaines étapes.",
+            "Ses priorités.",
+            "Les outils à mettre en place.",
+            "Une feuille de route claire.",
+            "Une méthode pour continuer à développer son activité.",
+          ],
+        },
+      ] as ProgrammeModule[],
+    },
+  ],
   pedagogie: [
-    "Apports pratiques et cas concrets issus du terrain.",
-    "Exercices et mises en application directes.",
-    "Modèles et outils prêts à l'emploi.",
-    "Accompagnement individualisé.",
+    "Apports théoriques.",
+    "Démonstrations.",
+    "Exercices pratiques.",
+    "Études de cas.",
+    "Travaux individuels.",
+    "Échanges entre participants.",
+    "Utilisation concrète d'outils d'intelligence artificielle.",
+  ],
+  moyens: [
+    "Support de formation numérique.",
+    "Présentation projetée.",
+    "Exercices pratiques.",
+    "Connexion Internet.",
+    "Ordinateur (personnel ou fourni selon les modalités).",
+    "ChatGPT, Perplexity, Canva.",
+    "Google Business Profile, Google Trends.",
+    "Google Analytics, Google Search Console.",
+    "WordPress.",
   ],
   evaluation: [
-    "Évaluation des acquis tout au long de la formation.",
-    "Quiz et mises en situation.",
-    "Bilan de fin de parcours.",
+    "Questionnaire de positionnement en début de formation.",
+    "Exercices pratiques tout au long de la formation.",
+    "Études de cas.",
+    "Quiz final.",
+    "Questionnaire de satisfaction en fin de formation.",
   ],
-  moyens:
-    "Supports numériques, accès à l'espace apprenant en ligne, ressources téléchargeables, démonstrations d'outils IA.",
+  suivi: [
+    "Feuille d'émargement.",
+    "Attestation d'assiduité.",
+    "Suivi pédagogique pendant toute la formation.",
+  ],
+  documents: [
+    "Support pédagogique numérique.",
+    "Attestation de fin de formation.",
+    "Plan d'action personnalisé à 30 jours.",
+    "Ressources et modèles utilisés pendant la formation.",
+  ],
+  validation:
+    "À l'issue de la formation, une attestation de fin de formation est remise à chaque participant ayant suivi l'intégralité du parcours.",
   accessibilite:
-    "Formation accessible aux personnes en situation de handicap. Référent dédié et adaptations étudiées au cas par cas.",
+    "La formation est accessible aux personnes en situation de handicap. Les modalités d'accueil et d'accompagnement sont étudiées au cas par cas afin de proposer les adaptations nécessaires.",
   certification:
-    "Attestation de formation délivrée en fin de parcours. Formation en lien avec la certification RS6776.",
+    "Attestation de fin de formation remise à chaque participant ayant suivi l'intégralité du parcours.",
   financement:
     "Financement possible selon votre profil (notamment Constructys). Accompagnement au montage du dossier.",
-  modules: [
-    {
-      num: "01",
-      titre: "Cadrer son projet",
-      points: [
-        "Transformer une idée en projet structuré",
-        "Étudier son marché simplement",
-        "Définir sa cible et sa proposition de valeur",
-      ],
-    },
-    {
-      num: "02",
-      titre: "Choisir son statut",
-      points: [
-        "Comprendre les principaux statuts juridiques",
-        "Choisir selon sa situation réelle",
-        "Anticiper les obligations essentielles",
-      ],
-    },
-    {
-      num: "03",
-      titre: "Construire son offre",
-      points: [
-        "Clarifier son offre et ses prix",
-        "Se différencier sans se compliquer",
-        "Préparer ses premiers supports",
-      ],
-    },
-    {
-      num: "04",
-      titre: "L'IA au service du terrain",
-      points: [
-        "Découvrir les outils IA utiles à votre métier",
-        "Rédiger devis, mails et contenus plus vite",
-        "Gagner du temps sans compétence technique",
-      ],
-    },
-    {
-      num: "05",
-      titre: "Automatiser l'administratif",
-      points: [
-        "Identifier les tâches répétitives",
-        "Mettre en place des automatisations simples",
-        "Organiser son suivi client",
-      ],
-    },
-    {
-      num: "06",
-      titre: "Lancer son activité",
-      points: [
-        "Construire son plan d'action",
-        "Trouver ses premiers clients",
-        "Suivre et ajuster dans la durée",
-      ],
-    },
-  ],
 } as const;
 
 /* --- Financement --- */
