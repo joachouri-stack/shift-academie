@@ -48,7 +48,7 @@ Ensuite, sur le VPS :
 cd /var/www 2>/dev/null || mkdir -p /var/www && cd /var/www
 git clone git@github.com:joachouri-stack/shift-academie.git
 cd shift-academie
-git checkout claude/cc-2t0pji   # branche actuelle du site
+git checkout main
 ```
 
 ---
