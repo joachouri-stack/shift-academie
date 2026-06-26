@@ -1,9 +1,13 @@
 .logo {
+  /* Couleur signature de la famille « Shift » (modifiable par marque). */
+  --logo-accent: #ff6b2b;
+
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.4em;
+  align-items: center;
+  gap: 0.5em;
   font-family: var(--font-sans);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .mark {
@@ -12,33 +16,39 @@
   font-weight: 800;
   font-size: 1.32rem;
   letter-spacing: -0.02em;
-  color: var(--noir);
+  color: var(--logo-accent);
 }
 
 .bracket {
-  color: var(--or-deep);
-  font-weight: 700;
+  font-weight: 300;
+  opacity: 0.85;
+  /* léger resserrement des crochets sur le mot */
+  margin-inline: -0.02em;
 }
 
 .name {
-  margin-inline: 0.04em;
+  margin-inline: 0.06em;
 }
 
-.sub {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 500;
-  font-style: italic;
+.divider {
+  width: 1px;
+  height: 1.1em;
+  background: currentColor;
+  opacity: 0.22;
+}
+
+.qualifier {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--gris-3);
-  letter-spacing: 0.01em;
 }
 
-.dark .mark {
-  color: var(--blanc-pure);
-}
-.dark .bracket {
-  color: var(--or);
-}
-.dark .sub {
+/* Variante fond sombre */
+.dark .qualifier {
   color: var(--text-on-dark-muted);
+}
+.dark .divider {
+  background: #ffffff;
 }
