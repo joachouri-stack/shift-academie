@@ -2,6 +2,7 @@ import "server-only";
 import bcrypt from "bcryptjs";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { db } from "./db";
 import { users, type User } from "./db/schema";
@@ -65,4 +66,19 @@ export async function getCurrentUser(): Promise<User | null> {
   if (!id) return null;
   const user = db.select().from(users).where(eq(users.id, id)).get();
   return user ?? null;
+}
+
+/* Exige un utilisateur connecté (sinon redirige vers la connexion). */
+export async function requireUser(): Promise<User> {
+  const user = await getCurrentUser();
+  if (!user) redirect("/connexion");
+  return user;
+}
+
+/* Exige un administrateur (sinon redirige). */
+export async function requireAdmin(): Promise<User> {
+  const user = await getCurrentUser();
+  if (!user) redirect("/connexion");
+  if (user.role !== "admin") redirect("/espace");
+  return user;
 }

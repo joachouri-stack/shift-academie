@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { randomUUID } from "crypto";
+import { db } from "@/lib/db";
+import { leads } from "@/lib/db/schema";
 
 export const runtime = "nodejs";
 
@@ -50,20 +53,32 @@ export async function POST(request: Request) {
     );
   }
 
-  // TODO (jalon suivant) : envoi email (Resend/SMTP) + enregistrement en base.
-  // Pour l'instant, on journalise côté serveur.
-  const lead = {
-    prenom: data.prenom,
-    nom: data.nom,
-    metier: data.metier,
-    nombre: data.nombre,
-    email: data.email,
-    telephone: data.telephone,
-    format: data.format,
-    periode: data.periode,
-    message: data.message ?? "",
-  };
-  console.info("[reservation] nouvelle demande:", lead);
+  // Enregistrement de la demande en base (visible dans l'espace admin).
+  try {
+    db.insert(leads)
+      .values({
+        id: randomUUID(),
+        prenom: data.prenom,
+        nom: data.nom,
+        metier: data.metier ?? "",
+        nombre: data.nombre ?? "",
+        email: data.email,
+        telephone: data.telephone ?? "",
+        format: data.format ?? "",
+        periode: data.periode ?? "",
+        message: data.message ?? "",
+        handled: false,
+        createdAt: new Date(),
+      })
+      .run();
+  } catch (err) {
+    console.error("[reservation] échec enregistrement:", err);
+    return NextResponse.json(
+      { ok: false, message: "Une erreur est survenue. Réessayez." },
+      { status: 500 }
+    );
+  }
 
+  // TODO (jalon suivant) : notification email (Resend/SMTP).
   return NextResponse.json({ ok: true });
 }

@@ -27,6 +27,26 @@
   font-size: var(--fs-h2);
 }
 
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.adminLink {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--blanc-pure);
+  background: var(--noir);
+  border-radius: var(--r-pill);
+  padding: 0.65rem 1.3rem;
+  transition: background-color var(--t) var(--ease);
+}
+.adminLink:hover {
+  background: #15151d;
+}
+
 .logout {
   font-size: var(--fs-sm);
   font-weight: 600;

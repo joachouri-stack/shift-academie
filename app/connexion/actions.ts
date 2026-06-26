@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { randomUUID } from "crypto";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { users } from "@/lib/db/schema";
 import {
@@ -49,6 +49,13 @@ export async function registerAction(
     return { error: "Un compte existe déjà avec cet email." };
   }
 
+  // Le tout premier compte créé devient administrateur.
+  const countRow = db
+    .select({ c: sql<number>`count(*)` })
+    .from(users)
+    .get();
+  const isFirst = (countRow?.c ?? 0) === 0;
+
   const id = randomUUID();
   db.insert(users)
     .values({
@@ -57,7 +64,7 @@ export async function registerAction(
       passwordHash: await hashPassword(password),
       firstName,
       lastName,
-      role: "learner",
+      role: isFirst ? "admin" : "learner",
       createdAt: new Date(),
     })
     .run();

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { logoutAction } from "@/app/connexion/actions";
@@ -27,11 +28,18 @@ export default async function EspacePage() {
               Bonjour {user.firstName} 👋
             </h1>
           </div>
-          <form action={logoutAction}>
-            <button type="submit" className={styles.logout}>
-              Se déconnecter
-            </button>
-          </form>
+          <div className={styles.topActions}>
+            {user.role === "admin" && (
+              <Link href="/admin" className={styles.adminLink}>
+                Espace admin →
+              </Link>
+            )}
+            <form action={logoutAction}>
+              <button type="submit" className={styles.logout}>
+                Se déconnecter
+              </button>
+            </form>
+          </div>
         </div>
 
         {/* Carte formation */}

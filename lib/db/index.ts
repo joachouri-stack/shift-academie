@@ -28,6 +28,39 @@ sqlite.exec(`
     role TEXT NOT NULL DEFAULT 'learner',
     created_at INTEGER NOT NULL
   );
+
+  CREATE TABLE IF NOT EXISTS formations (
+    id TEXT PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL DEFAULT '',
+    format TEXT NOT NULL DEFAULT 'distanciel',
+    published INTEGER NOT NULL DEFAULT 0,
+    position INTEGER NOT NULL DEFAULT 0,
+    created_at INTEGER NOT NULL
+  );
+
+  CREATE TABLE IF NOT EXISTS modules (
+    id TEXT PRIMARY KEY,
+    formation_id TEXT NOT NULL,
+    title TEXT NOT NULL,
+    position INTEGER NOT NULL DEFAULT 0,
+    created_at INTEGER NOT NULL
+  );
+
+  CREATE TABLE IF NOT EXISTS leads (
+    id TEXT PRIMARY KEY,
+    prenom TEXT NOT NULL,
+    nom TEXT NOT NULL,
+    metier TEXT NOT NULL DEFAULT '',
+    nombre TEXT NOT NULL DEFAULT '',
+    email TEXT NOT NULL,
+    telephone TEXT NOT NULL DEFAULT '',
+    format TEXT NOT NULL DEFAULT '',
+    periode TEXT NOT NULL DEFAULT '',
+    message TEXT NOT NULL DEFAULT '',
+    handled INTEGER NOT NULL DEFAULT 0,
+    created_at INTEGER NOT NULL
+  );
 `);
 
 export const db = drizzle(sqlite, { schema });
