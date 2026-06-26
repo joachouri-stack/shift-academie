@@ -3,12 +3,6 @@ import Button from "@/components/ui/Button";
 import { formations } from "@/lib/content";
 import styles from "./Formation.module.css";
 
-const secteursAVenir = [
-  "Commerce",
-  "Métiers de bouche",
-  "Agriculture",
-  "Et d'autres secteurs",
-];
 
 export default function Formation() {
   return (
@@ -21,8 +15,8 @@ export default function Formation() {
           </h2>
           <p className="lead">
             Aujourd&rsquo;hui, nous concentrons toute notre énergie sur une
-            seule formation, pensée pour les professionnels de terrain. D&rsquo;autres
-            secteurs arrivent.
+            seule formation, pensée pour les professionnels de terrain. Une
+            nouvelle formation arrive bientôt.
           </p>
         </Reveal>
 
@@ -58,22 +52,21 @@ export default function Formation() {
             </Reveal>
           ))}
 
-          {/* Carte évolutivité — secteurs à venir */}
+          {/* Carte évolutivité — prochaine formation */}
           <Reveal className={styles.cardWrap} delay={80}>
             <article className={`${styles.card} ${styles.soon}`}>
-              <span className={styles.soonTag}>Bientôt</span>
-              <h3 className={styles.cardTitle}>D&rsquo;autres secteurs</h3>
+              <span className={styles.soonTag}>Prochaine formation</span>
+              <h3 className={styles.cardTitle}>
+                Intégrer l&rsquo;IA dans l&rsquo;artisanat
+              </h3>
               <p className={styles.resume}>
-                [Shift] Académie élargit son catalogue. Les mêmes méthodes,
-                adaptées à votre métier.
+                Notre prochaine formation : mettre l&rsquo;intelligence
+                artificielle concrètement au service des métiers de
+                l&rsquo;artisanat.
               </p>
-              <ul className={styles.sectorList}>
-                {secteursAVenir.map((s) => (
-                  <li key={s}>{s}</li>
-                ))}
-              </ul>
               <p className={styles.soonNote}>
-                Un besoin précis ? Parlez-nous de votre secteur.
+                Envie d&rsquo;être informé du lancement ? Parlez-nous de votre
+                métier.
               </p>
             </article>
           </Reveal>
