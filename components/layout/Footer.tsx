@@ -26,6 +26,9 @@ export default function Footer() {
             <p className={styles.org}>
               Organisme de formation certifié Qualiopi.
             </p>
+            <p className={styles.orgLegal}>
+              SIRET {site.siret} · APE {site.naf} — {site.nafLabel}
+            </p>
           </div>
 
           <nav className={styles.col} aria-label="Navigation">

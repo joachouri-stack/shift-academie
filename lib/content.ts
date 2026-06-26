@@ -18,6 +18,10 @@ export const site = {
   city: "Orange",
   founder: "Johane Achouri",
   responseTime: "Réponse sous 24h",
+  // Informations juridiques
+  siret: "490 415 031 00122",
+  naf: "8559A",
+  nafLabel: "Formation continue d'adultes",
 } as const;
 
 export const nav = [

@@ -41,7 +41,9 @@ export default function MentionsLegalesPage() {
           Siège social :{" "}
           <span className="placeholder">[adresse complète]</span>
           <br />
-          SIRET : <span className="placeholder">[numéro SIRET]</span>
+          SIRET : {site.siret}
+          <br />
+          Code APE / NAF : {site.naf} — {site.nafLabel}
           <br />
           Numéro de TVA :{" "}
           <span className="placeholder">[numéro TVA intracommunautaire]</span>
