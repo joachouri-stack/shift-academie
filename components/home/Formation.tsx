@@ -60,11 +60,20 @@ export default function Formation() {
                 Intégrer l&rsquo;IA dans l&rsquo;artisanat
               </h3>
               <p className={styles.resume}>
-                Notre prochaine formation : mettre l&rsquo;intelligence
-                artificielle concrètement au service des métiers de
-                l&rsquo;artisanat.
+                Une formation 100 % pratique pour utiliser l&rsquo;IA
+                (ChatGPT, Claude, Gemini) dans votre quotidien d&rsquo;artisan.
+                En 2 jours, vous repartez avec un workflow IA complet pour
+                automatiser vos devis, vos rapports, votre administratif et la
+                rédaction de vos mémoires techniques.
               </p>
+              <ul className={styles.soonList}>
+                <li>Automatiser vos devis et vos rapports</li>
+                <li>Gagner du temps sur tout l&rsquo;administratif</li>
+                <li>Rédiger vos mémoires techniques plus vite</li>
+                <li>Un workflow IA prêt à l&rsquo;emploi, sur vos vrais dossiers</li>
+              </ul>
               <p className={styles.soonNote}>
+                Zéro théorie, zéro jargon — on travaille sur vos dossiers.
                 Envie d&rsquo;être informé du lancement ? Parlez-nous de votre
                 métier.
               </p>
