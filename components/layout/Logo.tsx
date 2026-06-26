@@ -14,8 +14,9 @@ type LogoProps = {
 /**
  * Wordmark premium de la famille « Shift ».
  * Réutilisable sur les 3 marques : Shift Académie, Shift Office, Johane Shift.
- * - « [Shift] » porte la couleur signature (--logo-accent).
- * - Le qualificatif (Académie / Office / Johane) est neutre, en petites capitales espacées.
+ * - « [Shift] » porte la couleur signature (--logo-accent), en sans-serif gras.
+ * - Le qualificatif (Académie / Office / Johane) est en serif élégant,
+ *   à pleine taille : il fait pleinement partie du logo.
  */
 export default function Logo({
   tone = "light",
@@ -31,12 +32,7 @@ export default function Logo({
       className={`${styles.logo} ${tone === "dark" ? styles.dark : ""}`}
       aria-label={`${aria} — Accueil`}
     >
-      {prefix && (
-        <>
-          <span className={styles.qualifier}>{prefix}</span>
-          <span className={styles.divider} aria-hidden="true" />
-        </>
-      )}
+      {prefix && <span className={styles.qualifier}>{prefix}</span>}
 
       <span className={styles.mark}>
         <span className={styles.bracket}>[</span>
@@ -44,12 +40,7 @@ export default function Logo({
         <span className={styles.bracket}>]</span>
       </span>
 
-      {suffix && (
-        <>
-          <span className={styles.divider} aria-hidden="true" />
-          <span className={styles.qualifier}>{suffix}</span>
-        </>
-      )}
+      {suffix && <span className={styles.qualifier}>{suffix}</span>}
     </Link>
   );
 }

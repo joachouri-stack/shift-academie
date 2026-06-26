@@ -3,52 +3,43 @@
   --logo-accent: #ff6b2b;
 
   display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
+  align-items: baseline;
+  gap: 0.28em;
   font-family: var(--font-sans);
   line-height: 1;
   white-space: nowrap;
 }
 
+/* « [Shift] » — sans-serif gras, couleur signature */
 .mark {
   display: inline-flex;
   align-items: baseline;
   font-weight: 800;
-  font-size: 1.32rem;
-  letter-spacing: -0.02em;
+  font-size: 1.4rem;
+  letter-spacing: -0.025em;
   color: var(--logo-accent);
 }
 
 .bracket {
   font-weight: 300;
-  opacity: 0.85;
-  /* léger resserrement des crochets sur le mot */
-  margin-inline: -0.02em;
+  opacity: 0.9;
+  margin-inline: -0.01em;
 }
 
 .name {
-  margin-inline: 0.06em;
+  margin-inline: 0.05em;
 }
 
-.divider {
-  width: 1px;
-  height: 1.1em;
-  background: currentColor;
-  opacity: 0.22;
-}
-
+/* « Académie » — serif élégant, à pleine taille : partie intégrante du logo */
 .qualifier {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gris-3);
+  font-family: var(--font-display);
+  font-size: 1.34rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--noir);
 }
 
 /* Variante fond sombre */
 .dark .qualifier {
-  color: var(--text-on-dark-muted);
-}
-.dark .divider {
-  background: #ffffff;
+  color: var(--blanc-pure);
 }
