@@ -142,7 +142,7 @@ export const fondateur = {
 /* --- Témoignages (sobres et crédibles) --- */
 export const temoignages = [
   {
-    nom: "Sophie M.",
+    nom: "Cherryne T.",
     role: "Artisane peintre · Indépendante",
     photo: "/assets/temoignage-sophie.jpg",
     texte:
