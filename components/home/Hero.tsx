@@ -16,8 +16,9 @@ export default function Hero() {
           </span>
 
           <h1 id="hero-title" className={styles.title}>
-            La formation <span className={styles.accentWord}>IA</span> qui parle
-            le langage du <span className={styles.goldWord}>terrain</span>.
+            Créez votre entreprise avec l&rsquo;
+            <span className={styles.accentWord}>IA</span> qui parle le langage du{" "}
+            <span className={styles.goldWord}>terrain</span>.
           </h1>
 
           <p className={styles.subtitle}>
