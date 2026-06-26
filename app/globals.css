@@ -24,6 +24,11 @@
   --accent: #e8610a;
   --accent-deep: #c4500a;
 
+  /* Orange signature de la marque « Shift » (logo, badges de marque). */
+  --shift-orange: #ff6b2b;
+  --shift-orange-deep: #e85d1f;
+  --shift-orange-rgb: 255, 107, 43;
+
   /* --- Texte --- */
   --text-strong: var(--noir);
   --text: #1f1f29;

@@ -52,18 +52,21 @@
   align-items: center;
   gap: 0.5em;
   font-size: var(--fs-xs);
-  font-weight: 600;
-  color: var(--accent-deep);
-  background: rgba(var(--accent-rgb), 0.1);
-  padding: 0.4em 0.9em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--blanc-pure);
+  background: var(--shift-orange);
+  padding: 0.45em 0.95em;
   border-radius: var(--r-pill);
+  box-shadow: 0 6px 16px -6px rgba(var(--shift-orange-rgb), 0.6);
 }
 .tag::before {
   content: "";
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--blanc-pure);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
 }
 
 .sector {
