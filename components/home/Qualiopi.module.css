@@ -45,7 +45,7 @@
   font-size: 1.1rem;
   letter-spacing: 0.02em;
   color: var(--blanc-pure);
-  background: linear-gradient(135deg, var(--or-deep), var(--noir));
+  background: linear-gradient(135deg, var(--shift-orange), var(--shift-orange-deep));
   padding: 0.7em 1em;
   border-radius: var(--r-sm);
 }
