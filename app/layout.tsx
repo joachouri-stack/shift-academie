@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "Constructys",
     "RS6776",
     "formation professionnelle",
-    "Avignon",
+    "Orange",
   ],
   authors: [{ name: site.founder }],
   openGraph: {

@@ -158,8 +158,8 @@ export default function Reservation() {
               <div className={styles.row}>
                 <div className={styles.field}>
                   <label htmlFor="format">Format souhaité</label>
-                  <select id="format" name="format" defaultValue="Présentiel — Avignon">
-                    <option>Présentiel — Avignon</option>
+                  <select id="format" name="format" defaultValue="Présentiel — Orange">
+                    <option>Présentiel — Orange</option>
                     <option>Distanciel</option>
                     <option>Indifférent</option>
                   </select>

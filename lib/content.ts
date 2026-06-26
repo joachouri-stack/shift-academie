@@ -15,7 +15,7 @@ export const site = {
   phone: "+33 7 69 01 02 02",
   phoneDisplay: "+33 7 69 01 02 02",
   whatsapp: "https://wa.me/33769010202",
-  city: "Avignon",
+  city: "Orange",
   founder: "Johane Achouri",
   responseTime: "Réponse sous 24h",
 } as const;
@@ -66,7 +66,7 @@ export const formations: Formation[] = [
     accroche: "De l'idée au lancement, avec l'IA comme copilote.",
     resume:
       "Structurez votre projet, choisissez le bon statut, montez votre offre et automatisez votre administratif grâce à des outils d'intelligence artificielle simples et concrets.",
-    formats: ["Présentiel — Avignon", "Distanciel"],
+    formats: ["Présentiel — Orange", "Distanciel"],
     duree: "14 heures (2 jours)",
     niveau: "Accessible aux débutants",
     certification: "Attestation de fin de formation",
@@ -80,7 +80,7 @@ export const prochaineSession = {
   disponible: true,
   /** Ex. "Du 5 au 7 novembre 2026" */
   dates: "Du 5 au 7 novembre 2026",
-  lieu: "Avignon",
+  lieu: "Orange",
 };
 
 /* --- Indicateurs de qualité (Qualiopi) --- */
@@ -169,7 +169,7 @@ export const faq = [
   },
   {
     q: "Est-elle disponible en présentiel ?",
-    a: "Oui, la formation est proposée en présentiel à Avignon, dans un cadre adapté à l'apprentissage.",
+    a: "Oui, la formation est proposée en présentiel à Orange, dans un cadre adapté à l'apprentissage.",
   },
   {
     q: "Est-elle disponible à distance ?",
