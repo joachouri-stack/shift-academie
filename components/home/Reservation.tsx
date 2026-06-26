@@ -45,9 +45,11 @@ export default function Reservation() {
 
   return (
     <section className={styles.section} id="reservation" aria-labelledby="resa-title">
-      <div className={`container ${styles.inner}`}>
-        {/* Colonne info */}
-        <Reveal className={styles.aside}>
+      <div className="container">
+        <div className={styles.frame}>
+          <div className={styles.inner}>
+            {/* Colonne info */}
+            <Reveal className={styles.aside}>
           <span className="eyebrow">Réservation</span>
           <h2 id="resa-title" className={styles.title}>
             Recevez votre liste de documents.
@@ -226,6 +228,8 @@ export default function Reservation() {
             </form>
           )}
         </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   );

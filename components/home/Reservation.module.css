@@ -3,10 +3,30 @@
   background: linear-gradient(180deg, var(--blanc), #f1ece1);
 }
 
+/* Encadrement premium autour du bloc réservation */
+.frame {
+  position: relative;
+  background: var(--blanc-pure);
+  border: 1px solid var(--gris-line);
+  border-radius: var(--r-xl);
+  padding: clamp(24px, 4vw, 56px);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+/* fin liseré de marque en haut de l'encadré */
+.frame::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--shift-orange), var(--or));
+}
+
 .inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(36px, 5vw, 56px);
+  gap: clamp(32px, 4vw, 52px);
   align-items: start;
 }
 
@@ -49,14 +69,14 @@
   color: var(--or-deep);
 }
 
-/* Carte formulaire */
+/* Carte formulaire (insérée dans l'encadré : plus discrète) */
 .formCard {
   min-width: 0;
-  background: var(--blanc-pure);
+  background: var(--blanc);
   border: 1px solid var(--gris-line);
-  border-radius: var(--r-xl);
-  padding: clamp(24px, 4vw, 40px);
-  box-shadow: var(--shadow-lg);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 3vw, 32px);
+  box-shadow: var(--shadow-xs);
 }
 
 .form {
@@ -100,7 +120,7 @@
   padding: 0.8rem 1rem;
   font-size: var(--fs-body);
   color: var(--text-strong);
-  background: var(--blanc);
+  background: var(--blanc-pure);
   border: 1.5px solid var(--gris-line);
   border-radius: var(--r-md);
   transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease),
