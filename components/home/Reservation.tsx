@@ -142,7 +142,7 @@ export default function Reservation() {
 
               <div className={styles.row}>
                 <Field
-                  label="Email professionnel"
+                  label="Email"
                   name="email"
                   type="email"
                   autoComplete="email"
