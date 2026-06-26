@@ -16,9 +16,9 @@ export default function Hero() {
           </span>
 
           <h1 id="hero-title" className={styles.title}>
-            Créez votre activité indépendante avec l&rsquo;
-            <span className={styles.accentWord}>IA</span>, de l&rsquo;idée aux{" "}
-            <span className={styles.goldWord}>premiers clients</span>.
+            Lancez votre activité{" "}
+            <span className={styles.accentWord}>indépendante</span>, de
+            l&rsquo;idée aux <span className={styles.goldWord}>premiers clients</span>.
           </h1>
 
           <p className={styles.subtitle}>
