@@ -1,5 +1,6 @@
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
+import Avatar from "@/components/ui/Avatar";
 import { temoignages } from "@/lib/content";
 import styles from "./Temoignages.module.css";
 
@@ -22,9 +23,12 @@ export default function Temoignages() {
                 </span>
                 <blockquote className={styles.text}>{t.texte}</blockquote>
                 <figcaption className={styles.author}>
-                  <span className={styles.avatar} aria-hidden="true">
-                    {t.nom.charAt(0)}
-                  </span>
+                  <Avatar
+                    src={t.photo}
+                    alt={t.nom}
+                    initials={t.nom.charAt(0)}
+                    className={styles.avatar}
+                  />
                   <span>
                     <span className={styles.name}>{t.nom}</span>
                     <span className={styles.role}>{t.role}</span>

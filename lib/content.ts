@@ -144,18 +144,21 @@ export const temoignages = [
   {
     nom: "Sophie M.",
     role: "Artisane peintre · Indépendante",
+    photo: "/assets/temoignage-sophie.jpg",
     texte:
       "Je passais mes dimanches sur mes devis. Aujourd'hui je les prépare en quelques minutes et je récupère mon temps. Concret, sans jargon.",
   },
   {
     nom: "Karim B.",
     role: "Plombier-chauffagiste · Gérant",
+    photo: "/assets/temoignage-karim.jpg",
     texte:
       "Je voyais l'IA partout sans comprendre à quoi ça servait pour moi. Là, j'ai enfin des outils que j'utilise vraiment, tous les jours.",
   },
   {
     nom: "Thomas R.",
     role: "Commerçant · Épicerie fine",
+    photo: "/assets/temoignage-thomas.jpg",
     texte:
       "Mon administratif tournait en rond. La formation m'a permis d'automatiser le plus pénible et de me reconcentrer sur ma boutique.",
   },
