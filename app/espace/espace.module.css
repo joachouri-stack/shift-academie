@@ -1,0 +1,200 @@
+.wrap {
+  padding-block: clamp(40px, 6vw, 72px);
+  min-height: 70vh;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-7);
+  border-bottom: 1px solid var(--gris-line);
+}
+
+.eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--or-deep);
+}
+
+.hello {
+  margin-top: var(--space-2);
+  font-size: var(--fs-h2);
+}
+
+.logout {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-strong);
+  border: 1.5px solid var(--gris-line);
+  border-radius: var(--r-pill);
+  padding: 0.65rem 1.3rem;
+  transition: border-color var(--t) var(--ease), background-color var(--t) var(--ease);
+}
+.logout:hover {
+  border-color: var(--noir);
+  background: var(--blanc-pure);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+/* Carte formation */
+.course {
+  background: var(--blanc-pure);
+  border: 1px solid var(--gris-line);
+  border-radius: var(--r-xl);
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: var(--shadow-sm);
+}
+
+.courseHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.tag {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--blanc-pure);
+  background: var(--shift-orange);
+  padding: 0.4em 0.9em;
+  border-radius: var(--r-pill);
+}
+
+.format {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.courseTitle {
+  font-size: var(--fs-h3);
+}
+
+.courseText {
+  margin-top: var(--space-2);
+  color: var(--or-deep);
+  font-weight: 500;
+}
+
+.progress {
+  margin-top: var(--space-6);
+}
+
+.progressTop {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-2);
+}
+.progressVal {
+  color: var(--or-deep);
+}
+
+.bar {
+  height: 10px;
+  border-radius: var(--r-pill);
+  background: var(--gris-line-2);
+  overflow: hidden;
+}
+.barFill {
+  height: 100%;
+  border-radius: var(--r-pill);
+  background: linear-gradient(90deg, var(--shift-orange), var(--or));
+  transition: width 0.6s var(--ease-out);
+}
+
+.continue {
+  margin-top: var(--space-6);
+  width: 100%;
+  padding: 1rem;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--gris-line-2);
+  border-radius: var(--r-pill);
+  cursor: not-allowed;
+}
+
+.note {
+  margin-top: var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Colonne latérale */
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.sideCard {
+  background: var(--blanc-pure);
+  border: 1px solid var(--gris-line);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.sideTitle {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-4);
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.infoList li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+}
+.infoList span {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.infoList strong {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--text-strong);
+  word-break: break-word;
+}
+
+.help {
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}
+.helpLink {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--accent-deep);
+}
+
+@media (min-width: 880px) {
+  .grid {
+    grid-template-columns: 1.6fr 1fr;
+    align-items: start;
+  }
+}
