@@ -74,6 +74,15 @@ export const formations: Formation[] = [
   },
 ];
 
+/* --- Prochaine session (modifiable à chaque session) --- */
+export const prochaineSession = {
+  /** Mettre à false pour afficher « Prochaine date à venir » au lieu des dates. */
+  disponible: true,
+  /** Ex. "Du 5 au 7 novembre 2026" */
+  dates: "Du 5 au 7 novembre 2026",
+  lieu: "Avignon",
+};
+
 /* --- Indicateurs de qualité (Qualiopi) --- */
 export const indicateurs = [
   { label: "Taux de satisfaction", value: null, suffix: "%" },

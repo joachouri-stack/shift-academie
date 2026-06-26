@@ -1,5 +1,5 @@
 import Button from "@/components/ui/Button";
-import { heroBadges, site } from "@/lib/content";
+import { heroBadges, site, prochaineSession } from "@/lib/content";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -63,6 +63,41 @@ export default function Hero() {
           <p className={styles.cardText}>
             De l&rsquo;idée au lancement, avec l&rsquo;IA comme copilote.
           </p>
+
+          <div className={styles.session}>
+            <svg
+              className={styles.sessionIcon}
+              viewBox="0 0 20 20"
+              width="18"
+              height="18"
+              aria-hidden="true"
+            >
+              <rect
+                x="2.75"
+                y="3.75"
+                width="14.5"
+                height="13.5"
+                rx="2.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+              />
+              <path
+                d="M2.75 7.5h14.5M6.5 2.5v2.5M13.5 2.5v2.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+              />
+            </svg>
+            <span className={styles.sessionText}>
+              <span className={styles.sessionLabel}>Prochaine session</span>
+              <span className={styles.sessionDate}>
+                {prochaineSession.disponible
+                  ? prochaineSession.dates
+                  : "Prochaine date à venir"}
+              </span>
+            </span>
+          </div>
 
           <ul className={styles.cardList}>
             <li>

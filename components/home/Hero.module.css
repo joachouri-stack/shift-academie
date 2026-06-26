@@ -174,6 +174,42 @@
   color: var(--text-on-dark-muted);
 }
 
+.session {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding: 0.7rem 0.9rem;
+  background: rgba(var(--or-rgb), 0.12);
+  border: 1px solid rgba(var(--or-rgb), 0.32);
+  border-radius: var(--r-md);
+}
+
+.sessionIcon {
+  flex-shrink: 0;
+  color: var(--or);
+}
+
+.sessionText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.sessionLabel {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--or-soft);
+}
+
+.sessionDate {
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--blanc-pure);
+}
+
 .cardList {
   display: flex;
   flex-direction: column;
