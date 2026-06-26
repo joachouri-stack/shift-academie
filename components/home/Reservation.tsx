@@ -5,7 +5,7 @@ import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 import styles from "./Reservation.module.css";
 
-const reservationBadges = ["Qualiopi", "Constructys", "RS6776"];
+const reservationBadges = ["Qualiopi", "CPF", "Constructys"];
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -50,12 +50,13 @@ export default function Reservation() {
         <Reveal className={styles.aside}>
           <span className="eyebrow">Réservation</span>
           <h2 id="resa-title" className={styles.title}>
-            Réservez votre place — gratuitement.
+            Recevez votre liste de documents.
           </h2>
           <p className={styles.text}>
-            Remplissez ce formulaire — on vous rappelle sous 24h pour cadrer
-            votre projet et monter le dossier Constructys avec vous. Sans
-            engagement, sans surprise.
+            Remplissez ce formulaire — on vous envoie la liste des documents
+            nécessaires pour vous inscrire et préparer vos aides au financement
+            (CPF, Constructys…), et on vous rappelle sous 24h. Sans engagement,
+            sans surprise.
           </p>
 
           <ul className={styles.badges}>
@@ -95,8 +96,9 @@ export default function Reservation() {
               </span>
               <h3>Demande bien reçue !</h3>
               <p>
-                Merci. On vous rappelle sous 24h pour cadrer votre projet et
-                préparer votre dossier Constructys.
+                Merci. On vous envoie la liste des documents nécessaires à
+                votre inscription et à vos aides au financement, et on vous
+                rappelle sous 24h.
               </p>
               <Button onClick={() => setStatus("idle")} variant="outline">
                 Envoyer une autre demande
@@ -215,7 +217,7 @@ export default function Reservation() {
               >
                 {status === "loading"
                   ? "Envoi en cours…"
-                  : "Recevoir mon dossier Constructys"}
+                  : "Recevoir ma liste de documents"}
               </Button>
 
               <p className={styles.reassure}>
