@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
+import Avatar from "@/components/ui/Avatar";
 import Button from "@/components/ui/Button";
 import { fondateur, site } from "@/lib/content";
 import styles from "./apropos.module.css";
@@ -43,10 +44,12 @@ export default function AProposPage() {
       <section className="section">
         <div className={`container ${styles.founder}`}>
           <Reveal className={styles.founderCard}>
-            <div className={styles.avatar} aria-hidden="true">
-              {/* Photo à déposer dans /public/assets/ puis remplacer par <Image /> */}
-              <span>{fondateur.initiales}</span>
-            </div>
+            <Avatar
+              src="/assets/johane-achouri.jpg"
+              alt={fondateur.nom}
+              initials={fondateur.initiales}
+              className={styles.avatar}
+            />
             <p className={styles.fName}>{fondateur.nom}</p>
             <p className={styles.fRole}>{fondateur.role}</p>
             <ul className={styles.fTags}>

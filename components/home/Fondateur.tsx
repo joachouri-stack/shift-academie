@@ -1,4 +1,5 @@
 import Reveal from "@/components/ui/Reveal";
+import Avatar from "@/components/ui/Avatar";
 import { fondateur } from "@/lib/content";
 import styles from "./Fondateur.module.css";
 
@@ -32,14 +33,13 @@ export default function Fondateur() {
         <Reveal className={styles.right} delay={80}>
           {/* Carte profil — l'image réelle remplacera le placeholder */}
           <div className={styles.profile}>
-            <div className={styles.avatar} aria-hidden="true">
-              {/*
-                Photo du fondateur : déposer le fichier dans /public/assets/
-                puis remplacer ce bloc par :
-                <Image src="/assets/johane-achouri.jpg" alt="Johane Achouri" fill ... />
-              */}
-              <span className={styles.initiales}>{fondateur.initiales}</span>
-            </div>
+            <Avatar
+              src="/assets/johane-achouri.jpg"
+              alt={fondateur.nom}
+              initials={fondateur.initiales}
+              className={styles.avatar}
+              initialsClassName={styles.initiales}
+            />
             <div>
               <p className={styles.profileName}>{fondateur.nom}</p>
               <p className={styles.profileRole}>{fondateur.role}</p>
