@@ -193,11 +193,16 @@
 
 .moduleHead {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: var(--space-3);
+  gap: var(--space-2) var(--space-3);
   padding-bottom: var(--space-4);
   margin-bottom: var(--space-4);
   border-bottom: 1px solid var(--gris-line-2);
+}
+.moduleTitle {
+  flex: 1;
+  min-width: 60%;
 }
 .moduleNum {
   flex-shrink: 0;
@@ -213,6 +218,18 @@
   font-weight: 600;
   letter-spacing: -0.01em;
   margin: 0;
+}
+
+.moduleHoraire {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--or-deep);
+  background: rgba(var(--or-rgb), 0.12);
+  padding: 0.35em 0.75em;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
 }
 
 .moduleBody {

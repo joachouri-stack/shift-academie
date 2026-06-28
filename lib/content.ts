@@ -204,25 +204,22 @@ export const faq = [
   },
 ] as const;
 
-/* --- Programme de la formation « Créer son entreprise » --- */
+/* --- Programme officiel de la formation --- */
+export type ProgrammeSection = { titre: string; points: string[] };
+
 export type ProgrammeModule = {
   num: string;
   titre: string;
-  objectifs?: string[];
-  contenu: string[];
-  contenuTitre?: string;
-  casPratiques?: string[];
-  casPratiquesTitre?: string;
-  outils?: string[];
+  horaire?: string;
+  duree?: string;
+  sections: ProgrammeSection[];
 };
 
 export const programme = {
-  titre: "Créer son entreprise",
-  titreLong:
-    "Créer, lancer et développer une activité indépendante grâce à l'intelligence artificielle",
-  sousTitre: "De l'idée aux premiers clients.",
+  titre: "Maîtriser les fondamentaux de la création d'entreprise",
+  sousTitre: "De l'idée à la pérennisation de votre activité.",
   intro:
-    "Un parcours complet, de l'idée aux premiers clients, en s'appuyant sur l'intelligence artificielle pour gagner du temps à chaque étape. 14 heures, 100 % concrètes.",
+    "Une formation complète pour maîtriser toutes les étapes de la création d'entreprise : principes fondamentaux, cadre juridique et fiscal, bases économiques et financières, puis leviers de développement et de pérennisation. 14 heures réparties sur 2 jours.",
   duree: "14 heures (2 jours)",
   format: "Présentiel et/ou distanciel",
   public: [
@@ -236,211 +233,194 @@ export const programme = {
     "Salariés en reconversion",
   ],
   prerequis: [
-    "Savoir utiliser un ordinateur.",
-    "Disposer d'une adresse e-mail.",
-    "Aucune compétence technique ou connaissance en IA n'est requise.",
+    "Aucun prérequis particulier.",
+    "Savoir utiliser un ordinateur et disposer d'une adresse e-mail.",
+    "Avoir un projet ou l'envie de créer son entreprise.",
   ],
   objectifs: [
-    "Structurer un projet entrepreneurial solide.",
-    "Définir son offre et son positionnement.",
-    "Identifier son marché et ses clients.",
-    "Utiliser efficacement l'IA pour gagner du temps.",
-    "Produire rapidement des contenus professionnels.",
-    "Créer ses premiers outils de communication.",
-    "Développer sa visibilité en ligne.",
-    "Trouver ses premiers clients.",
-    "Construire un plan d'action concret pour lancer ou développer son activité.",
+    "Comprendre les principes fondamentaux et l'environnement de la création d'entreprise.",
+    "Identifier les étapes clés et les facteurs de réussite d'un projet entrepreneurial.",
+    "Comparer les formes juridiques et choisir un statut adapté à son projet.",
+    "Comprendre les régimes fiscaux, sociaux et les formalités administratives.",
+    "Maîtriser les bases économiques et financières d'un projet (modèle économique, indicateurs, financement).",
+    "Appréhender les leviers commerciaux, de communication et de pérennisation de l'entreprise.",
   ],
   jours: [
     {
-      titre: "Structurer son projet",
       label: "Jour 1",
+      titre: "Principes fondamentaux & cadre juridique",
       duree: "7 heures",
       modules: [
         {
           num: "01",
-          titre: "Définir son projet entrepreneurial",
-          objectifs: [
-            "Identifier ses compétences.",
-            "Choisir une activité cohérente.",
-            "Définir son client idéal.",
-            "Construire une proposition de valeur claire.",
+          titre:
+            "Comprendre les principes fondamentaux de la création d'entreprise",
+          horaire: "9h – 12h",
+          duree: "3 heures",
+          sections: [
+            {
+              titre: "Découvrir l'entrepreneuriat et son environnement",
+              points: [
+                "Définition de l'entrepreneuriat et de la création d'entreprise",
+                "Rôle de l'entrepreneur dans l'économie",
+                "Les différents types de projets entrepreneuriaux",
+                "Les motivations et qualités entrepreneuriales",
+              ],
+            },
+            {
+              titre:
+                "Identifier les étapes clés d'un projet de création d'entreprise",
+              points: [
+                "De l'idée à la création de l'activité",
+                "Les principales phases d'un projet entrepreneurial",
+                "Les acteurs de l'accompagnement à la création d'entreprise",
+                "Les ressources mobilisables pour développer son projet",
+              ],
+            },
+            {
+              titre: "Analyser les facteurs de réussite d'un projet entrepreneurial",
+              points: [
+                "Adéquation entre le porteur de projet et son activité",
+                "Importance de l'étude du marché",
+                "Positionnement et proposition de valeur",
+                "Anticipation des risques liés au démarrage",
+              ],
+            },
           ],
-          contenu: [
-            "Trouver une idée de projet rentable.",
-            "Définir ses objectifs.",
-            "Identifier ses forces.",
-            "Déterminer son marché cible.",
-            "Comprendre les besoins de ses futurs clients.",
-          ],
-          outils: ["ChatGPT", "Perplexity"],
         },
         {
           num: "02",
-          titre: "Étudier son marché grâce à l'IA",
-          objectifs: [
-            "Réaliser une étude de marché.",
-            "Identifier les concurrents.",
-            "Trouver des opportunités.",
-            "Déterminer son positionnement.",
+          titre:
+            "Identifier les cadres juridiques, fiscaux et administratifs de l'entreprise",
+          horaire: "13h – 17h",
+          duree: "4 heures",
+          sections: [
+            {
+              titre: "Comparer les différentes formes juridiques d'entreprise",
+              points: [
+                "Entreprise individuelle",
+                "Micro-entreprise",
+                "EURL et SARL",
+                "SASU et SAS",
+                "Critères de choix d'un statut juridique",
+              ],
+            },
+            {
+              titre: "Comprendre les régimes fiscaux et sociaux du dirigeant",
+              points: [
+                "Impôt sur le revenu et impôt sur les sociétés",
+                "Fonctionnement de la TVA",
+                "Cotisations sociales du dirigeant",
+                "Protection sociale et couverture du chef d'entreprise",
+              ],
+            },
+            {
+              titre:
+                "Identifier les formalités administratives liées à la création d'entreprise",
+              points: [
+                "Immatriculation de l'entreprise",
+                "Déclarations obligatoires",
+                "Obligations réglementaires de démarrage",
+                "Documents administratifs indispensables à l'activité",
+              ],
+            },
           ],
-          contenu: [
-            "Étude de marché assistée par IA.",
-            "Analyse concurrentielle.",
-            "Recherche d'opportunités.",
-            "Validation du projet.",
-          ],
-          outils: ["ChatGPT", "Google Trends", "Perplexity"],
-        },
-        {
-          num: "03",
-          titre: "Choisir son statut et organiser son activité",
-          contenu: [
-            "Les principaux statuts juridiques.",
-            "Les obligations administratives.",
-            "Les premières démarches.",
-            "Les assurances.",
-            "Les bases de la gestion d'entreprise.",
-            "Organisation quotidienne.",
-          ],
-        },
-        {
-          num: "04",
-          titre: "Construire son offre commerciale",
-          contenu: [
-            "Définir ses prestations.",
-            "Construire une offre attractive.",
-            "Déterminer ses tarifs.",
-            "Préparer ses premiers devis.",
-            "Structurer une proposition commerciale.",
-          ],
-          casPratiquesTitre: "Cas pratiques avec l'IA",
-          casPratiques: [
-            "Création de devis.",
-            "Rédaction de propositions commerciales.",
-            "Création d'emails professionnels.",
-            "Création de courriers administratifs.",
-          ],
-          outils: ["ChatGPT"],
-        },
-        {
-          num: "05",
-          titre: "Créer son identité professionnelle",
-          contenu: [
-            "Choisir un nom commercial.",
-            "Créer son identité visuelle.",
-            "Concevoir un logo.",
-            "Définir sa charte graphique.",
-            "Préparer ses premiers supports de communication.",
-          ],
-          outils: ["Canva", "ChatGPT"],
         },
       ] as ProgrammeModule[],
     },
     {
-      titre: "Développer son activité",
       label: "Jour 2",
+      titre: "Économie, finances & pérennisation",
       duree: "7 heures",
       modules: [
         {
-          num: "06",
-          titre: "Développer sa présence en ligne",
-          contenu: [
-            "Créer une fiche Google Business Profile.",
-            "Comprendre les réseaux sociaux.",
-            "Créer un site Internet.",
-            "Découvrir WordPress.",
-            "Optimiser sa visibilité locale.",
+          num: "03",
+          titre:
+            "Comprendre les bases économiques et financières d'un projet entrepreneurial",
+          horaire: "9h – 12h",
+          duree: "3 heures",
+          sections: [
+            {
+              titre: "Découvrir les composantes d'un modèle économique",
+              points: [
+                "Définition du modèle économique",
+                "Création et proposition de valeur",
+                "Sources de revenus de l'entreprise",
+                "Structure des coûts et dépenses",
+              ],
+            },
+            {
+              titre: "Analyser les principaux indicateurs financiers",
+              points: [
+                "Chiffre d'affaires",
+                "Charges fixes et charges variables",
+                "Résultat et rentabilité",
+                "Seuil de rentabilité et point mort",
+              ],
+            },
+            {
+              titre: "Identifier les solutions de financement d'une entreprise",
+              points: [
+                "Apports personnels",
+                "Emprunts bancaires",
+                "Aides publiques à la création d'entreprise",
+                "Dispositifs d'accompagnement et de financement",
+              ],
+            },
           ],
-          outils: ["Google Business Profile", "Canva", "WordPress"],
         },
         {
-          num: "07",
-          titre: "Trouver ses premiers clients",
-          contenu: [
-            "Les méthodes de prospection.",
-            "Le bouche-à-oreille.",
-            "Les réseaux sociaux.",
-            "Les partenariats.",
-            "Les recommandations.",
-            "Les avis clients.",
-          ],
-          casPratiquesTitre: "Applications avec l'IA",
-          casPratiques: [
-            "Création de publications.",
-            "Réponses aux avis.",
-            "Rédaction de messages commerciaux.",
-            "Création de contenus.",
-          ],
-          outils: ["ChatGPT", "Canva"],
-        },
-        {
-          num: "08",
-          titre: "Automatiser son activité grâce à l'IA",
-          contenuTitre: "Découverte des principaux outils d'IA",
-          contenu: [
-            "Découvrir et prendre en main les outils d'IA du quotidien.",
-          ],
-          casPratiquesTitre: "Cas pratiques",
-          casPratiques: [
-            "Générer des devis.",
-            "Rédiger des emails.",
-            "Rédiger des courriers.",
-            "Générer des contenus.",
-            "Créer des visuels.",
-            "Automatiser des tâches répétitives.",
-            "Organiser son activité plus efficacement.",
-          ],
-          outils: ["ChatGPT", "Perplexity", "Canva IA"],
-        },
-        {
-          num: "09",
-          titre: "Suivre son activité et mesurer ses résultats",
-          contenu: [
-            "Les indicateurs essentiels.",
-            "Suivre ses performances.",
-            "Comprendre Google Analytics.",
-            "Découvrir Google Search Console.",
-            "Organiser son suivi commercial.",
-            "Construire un tableau de bord simple.",
-          ],
-          outils: ["Google Analytics", "Google Search Console"],
-        },
-        {
-          num: "10",
-          titre: "Construire son plan d'action",
-          contenuTitre: "Chaque participant repart avec",
-          contenu: [
-            "Son plan d'action personnalisé à 30 jours.",
-            "Ses prochaines étapes.",
-            "Ses priorités.",
-            "Les outils à mettre en place.",
-            "Une feuille de route claire.",
-            "Une méthode pour continuer à développer son activité.",
+          num: "04",
+          titre:
+            "Appréhender les leviers de développement et de pérennisation de l'entreprise",
+          horaire: "13h – 17h",
+          duree: "4 heures",
+          sections: [
+            {
+              titre: "Comprendre les fondamentaux de la stratégie commerciale",
+              points: [
+                "Définition des objectifs commerciaux",
+                "Identification de la clientèle cible",
+                "Politique tarifaire",
+                "Développement de la relation client",
+              ],
+            },
+            {
+              titre: "Identifier les outils de communication et de visibilité",
+              points: [
+                "Construction de l'identité de l'entreprise",
+                "Communication digitale et traditionnelle",
+                "Présence sur les réseaux sociaux",
+                "Notions de marketing appliquées aux petites entreprises",
+              ],
+            },
+            {
+              titre: "Analyser les risques et les facteurs de pérennité de l'entreprise",
+              points: [
+                "Risques financiers, juridiques et opérationnels",
+                "Importance du suivi de l'activité",
+                "Outils de pilotage et indicateurs de performance",
+                "Principes d'amélioration continue et de développement de l'entreprise",
+              ],
+            },
           ],
         },
       ] as ProgrammeModule[],
     },
   ],
   pedagogie: [
-    "Apports théoriques.",
-    "Démonstrations.",
-    "Exercices pratiques.",
-    "Études de cas.",
+    "Apports théoriques structurés.",
+    "Exemples concrets et études de cas.",
+    "Exercices pratiques et mises en situation.",
     "Travaux individuels.",
     "Échanges entre participants.",
-    "Utilisation concrète d'outils d'intelligence artificielle.",
   ],
   moyens: [
     "Support de formation numérique.",
     "Présentation projetée.",
-    "Exercices pratiques.",
+    "Exercices et modèles pratiques.",
     "Connexion Internet.",
     "Ordinateur (personnel ou fourni selon les modalités).",
-    "ChatGPT, Perplexity, Canva.",
-    "Google Business Profile, Google Trends.",
-    "Google Analytics, Google Search Console.",
-    "WordPress.",
   ],
   evaluation: [
     "Questionnaire de positionnement en début de formation.",
@@ -457,7 +437,6 @@ export const programme = {
   documents: [
     "Support pédagogique numérique.",
     "Attestation de fin de formation.",
-    "Plan d'action personnalisé à 30 jours.",
     "Ressources et modèles utilisés pendant la formation.",
   ],
   validation:

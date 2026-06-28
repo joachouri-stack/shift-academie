@@ -7,15 +7,15 @@ import { programme, badges } from "@/lib/content";
 import styles from "./programme.module.css";
 
 export const metadata: Metadata = {
-  title: "Programme — Créer son entreprise",
+  title: "Programme — Maîtriser les fondamentaux de la création d'entreprise",
   description:
-    "Programme détaillé (14h, 2 jours) : créer, lancer et développer une activité indépendante grâce à l'IA. Objectifs, modules, outils, financement et accessibilité.",
+    "Programme détaillé (14h, 2 jours) : principes fondamentaux, cadre juridique et fiscal, bases économiques et financières, développement et pérennisation de l'entreprise.",
 };
 
 const facts = [
   { label: "Durée", value: programme.duree },
   { label: "Format", value: programme.format },
-  { label: "Niveau", value: "Aucun prérequis en IA" },
+  { label: "Niveau", value: "Aucun prérequis particulier" },
   { label: "À la clé", value: "Attestation de fin de formation" },
 ];
 
@@ -72,7 +72,7 @@ export default function ProgrammePage() {
       <PageHero
         eyebrow="Programme · 14 h"
         title={programme.titre}
-        lead={`${programme.titreLong}. ${programme.intro}`}
+        lead={programme.intro}
         breadcrumb={[{ label: "Accueil", href: "/" }, { label: "Programme" }]}
       />
 
@@ -121,8 +121,8 @@ export default function ProgrammePage() {
           <div className={styles.block}>
             <h2 className={styles.h2}>Le déroulé, module par module</h2>
             <p className="lead">
-              Deux journées, dix modules : de la structuration du projet
-              jusqu&rsquo;à vos premiers clients.
+              Deux journées, quatre modules : des principes fondamentaux
+              jusqu&rsquo;à la pérennisation de votre entreprise.
             </p>
           </div>
 
@@ -145,42 +145,20 @@ export default function ProgrammePage() {
                     <div className={styles.moduleHead}>
                       <span className={styles.moduleNum}>{m.num}</span>
                       <h4 className={styles.moduleTitle}>{m.titre}</h4>
+                      {m.horaire && (
+                        <span className={styles.moduleHoraire}>
+                          {m.horaire} · {m.duree}
+                        </span>
+                      )}
                     </div>
 
                     <div className={styles.moduleBody}>
-                      {m.objectifs && (
-                        <div className={styles.moduleGroup}>
-                          <span className={styles.groupLabel}>Objectifs</span>
-                          <CheckList items={m.objectifs} variant="dot" />
+                      {m.sections.map((sec) => (
+                        <div key={sec.titre} className={styles.moduleGroup}>
+                          <span className={styles.groupLabel}>{sec.titre}</span>
+                          <CheckList items={sec.points} variant="dot" />
                         </div>
-                      )}
-
-                      <div className={styles.moduleGroup}>
-                        <span className={styles.groupLabel}>
-                          {m.contenuTitre ?? "Contenu"}
-                        </span>
-                        <CheckList items={m.contenu} variant="dot" />
-                      </div>
-
-                      {m.casPratiques && (
-                        <div className={styles.moduleGroup}>
-                          <span className={styles.groupLabel}>
-                            {m.casPratiquesTitre ?? "Cas pratiques"}
-                          </span>
-                          <CheckList items={m.casPratiques} variant="dot" />
-                        </div>
-                      )}
-
-                      {m.outils && (
-                        <div className={styles.outils}>
-                          <span className={styles.groupLabel}>Outils</span>
-                          <ul className={styles.outilsList}>
-                            {m.outils.map((o) => (
-                              <li key={o}>{o}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
+                      ))}
                     </div>
                   </Reveal>
                 ))}
