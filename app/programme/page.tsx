@@ -219,7 +219,7 @@ export default function ProgrammePage() {
               <Button href="/inscription" variant="gold" size="lg" arrow>
                 S&rsquo;inscrire gratuitement
               </Button>
-              <Button href="/financement" variant="outline" size="lg">
+              <Button href="/financement" variant="light" size="lg">
                 Voir le financement
               </Button>
             </div>

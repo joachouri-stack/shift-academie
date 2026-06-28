@@ -110,7 +110,7 @@ export default function AProposPage() {
               </Button>
               <Button
                 href={`tel:${site.phone.replace(/\s/g, "")}`}
-                variant="outline"
+                variant="light"
                 size="lg"
               >
                 {site.phoneDisplay}
