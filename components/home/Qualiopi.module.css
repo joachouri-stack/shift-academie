@@ -83,25 +83,34 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  min-height: 3.6rem;
   font-size: var(--fs-sm);
   font-weight: 600;
+  line-height: 1.25;
   color: var(--text-strong);
-  padding: 0.85rem 1rem;
+  padding: 0.8rem 1rem;
   background: var(--blanc-pure);
   border: 1px solid var(--gris-line);
   border-radius: var(--r-md);
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease);
+}
+.badgeItem:hover {
+  border-color: rgba(var(--shift-orange-rgb), 0.4);
+  box-shadow: var(--shadow-sm);
 }
 
 .badgeIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: rgba(var(--or-rgb), 0.14);
-  color: var(--or-deep);
+  background: var(--shift-orange);
+  color: var(--blanc-pure);
+  box-shadow: 0 4px 10px -4px rgba(var(--shift-orange-rgb), 0.7);
 }
 
 @media (min-width: 560px) {
