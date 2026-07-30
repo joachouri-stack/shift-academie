@@ -94,6 +94,8 @@ export type Formation = {
   href?: string;
   /** Chemin du PDF du programme (si disponible). */
   pdf?: string;
+  /** Formation finançable via le CPF. */
+  cpf?: boolean;
 };
 
 export const formations: Formation[] = [
@@ -110,6 +112,7 @@ export const formations: Formation[] = [
     disponible: true,
     href: "/formations/creer-son-entreprise",
     pdf: "/programmes/creer-son-entreprise.pdf",
+    cpf: true,
   },
   {
     slug: "integrer-ia-artisanat",

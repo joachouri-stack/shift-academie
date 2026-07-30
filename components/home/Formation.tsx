@@ -37,6 +37,11 @@ export default function Formation() {
                   <p className={styles.resume}>{f.resume}</p>
 
                   <ul className={styles.meta}>
+                    {f.cpf && (
+                      <li>
+                        <span className="badge-cpf">Finançable CPF</span>
+                      </li>
+                    )}
                     {f.formats.map((fmt) => (
                       <li key={fmt}>{fmt}</li>
                     ))}

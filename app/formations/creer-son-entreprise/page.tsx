@@ -108,6 +108,14 @@ export default function FormationCreerEntreprisePage() {
             )}
           </Reveal>
 
+          {formation.cpf && (
+            <Reveal as="p" className={styles.cpfNote}>
+              <span className="badge-cpf">Finançable CPF</span>
+              Formation éligible au financement via votre Compte Personnel de
+              Formation.
+            </Reveal>
+          )}
+
           {/* Faits clés */}
           <Reveal as="ul" className={styles.facts}>
             {facts.map((f) => (
