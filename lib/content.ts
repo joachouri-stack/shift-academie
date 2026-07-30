@@ -71,6 +71,12 @@ export const financeurs = [
     secteur: "Entreprises de proximité & service à la personne",
     url: "https://www.opcoep.fr",
   },
+  {
+    nom: "CPF",
+    logo: "/logos/cpf.png",
+    secteur: "Compte Personnel de Formation",
+    url: "https://www.moncompteformation.gouv.fr",
+  },
 ] as const;
 
 /* --- Formations (tableau évolutif) --- */

@@ -5,6 +5,7 @@ Déposer ici les logos **officiels** (PNG à fond transparent de préférence, o
 - `constructys.png`   → Constructys (Bâtiment & TP)
 - `opcommerce.png`    → L'Opcommerce (Commerce)
 - `opco-ep.png`       → Opco EP (Entreprises de proximité)
+- `cpf.png`           → CPF / Mon Compte Formation
 
 Récupérer les logos depuis les espaces presse / kits de marque officiels de
 chaque OPCO. Une fois déposés avec ces noms exacts, ils s'affichent

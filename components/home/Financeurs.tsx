@@ -10,11 +10,12 @@ export default function Financeurs() {
         <Reveal className={styles.head}>
           <span className="eyebrow">Financement</span>
           <h2 id="financeurs-title" className={styles.title}>
-            Nos OPCO partenaires
+            Nos partenaires financeurs
           </h2>
           <p className="lead">
-            Selon votre secteur, votre formation peut être prise en charge par
-            votre OPCO. On vous accompagne pour monter votre dossier.
+            Selon votre profil, votre formation peut être prise en charge : OPCO
+            de votre secteur ou CPF. On vous accompagne pour monter votre
+            dossier.
           </p>
         </Reveal>
 
