@@ -21,13 +21,13 @@
   border-color: rgba(var(--shift-orange-rgb), 0.4);
 }
 .soon {
-  background: var(--blanc);
-  border-style: dashed;
+  background: linear-gradient(180deg, var(--blanc-pure), #fbf7f1);
+  border-color: rgba(var(--shift-orange-rgb), 0.28);
 }
 .soon:hover {
   transform: none;
   box-shadow: var(--shadow-sm);
-  border-color: var(--gris-line);
+  border-color: rgba(var(--shift-orange-rgb), 0.4);
 }
 
 .cardTop {

@@ -67,12 +67,12 @@ export default function Formation() {
               <h3 className={styles.cardTitle}>
                 Intégrer l&rsquo;IA dans l&rsquo;artisanat
               </h3>
+              <p className={styles.accroche}>
+                Automatisez devis, rapports et administratif au quotidien.
+              </p>
               <p className={styles.resume}>
-                Une formation 100 % pratique pour utiliser l&rsquo;IA
-                (ChatGPT, Claude, Gemini) dans votre quotidien d&rsquo;artisan.
-                En 2 jours, vous repartez avec un workflow IA complet pour
-                automatiser vos devis, vos rapports, votre administratif et la
-                rédaction de vos mémoires techniques.
+                Mettez l&rsquo;IA (ChatGPT, Claude, Gemini) au service de votre
+                métier — zéro théorie, on travaille sur vos vrais dossiers.
               </p>
               <ul className={styles.soonList}>
                 <li>Automatiser vos devis et vos rapports</li>
@@ -80,11 +80,16 @@ export default function Formation() {
                 <li>Rédiger vos mémoires techniques plus vite</li>
                 <li>Un workflow IA prêt à l&rsquo;emploi, sur vos vrais dossiers</li>
               </ul>
-              <p className={styles.soonNote}>
-                Zéro théorie, zéro jargon — on travaille sur vos dossiers.
-                Envie d&rsquo;être informé du lancement ? Parlez-nous de votre
-                métier.
-              </p>
+              <div className={styles.actions}>
+                <Button
+                  href="/formations/integrer-ia-artisanat"
+                  variant="outline"
+                  arrow
+                >
+                  Voir le programme
+                </Button>
+                <span className={styles.soonPill}>Ouverture bientôt</span>
+              </div>
             </article>
           </Reveal>
         </div>

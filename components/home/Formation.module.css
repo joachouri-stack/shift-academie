@@ -111,9 +111,23 @@
 
 /* Carte "bientôt" */
 .soon {
-  background: linear-gradient(180deg, #faf8f3, #f3efe5);
-  border: 1.5px dashed var(--gris-line);
+  background: linear-gradient(180deg, var(--blanc-pure), #fbf7f1);
+  border: 1.5px solid rgba(var(--shift-orange-rgb), 0.28);
   box-shadow: var(--shadow-sm);
+}
+.soon .cardTitle {
+  color: var(--noir);
+}
+
+.soonPill {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--gris-line-2);
+  padding: 0.5em 0.9em;
+  border-radius: var(--r-pill);
 }
 .soon:hover {
   transform: none;
