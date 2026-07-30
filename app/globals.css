@@ -230,23 +230,42 @@ p {
   padding-block: var(--section-y);
 }
 
-/* Badge « Finançable CPF » (couleurs Mon Compte Formation) */
+/* Badges modernes réutilisables (features + CPF) */
+.badge,
 .badge-cpf {
   display: inline-flex;
   align-items: center;
-  gap: 0.4em;
+  gap: 0.45em;
   font-size: var(--fs-xs);
-  font-weight: 700;
-  color: #0a4a9e;
-  background: rgba(10, 74, 158, 0.1);
-  border: 1px solid rgba(10, 74, 158, 0.28);
-  padding: 0.4em 0.85em;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.55em 0.9em;
   border-radius: var(--r-pill);
+  border: 1px solid transparent;
   white-space: nowrap;
+}
+.badge {
+  color: var(--text-strong);
+  background: var(--blanc-pure);
+  border-color: var(--gris-line);
+}
+.badge::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--or-deep);
+  flex-shrink: 0;
+}
+.badge-cpf {
+  color: #0a4a9e;
+  background: rgba(10, 74, 158, 0.09);
+  border-color: rgba(10, 74, 158, 0.26);
+  font-weight: 700;
 }
 .badge-cpf::before {
   content: "✓";
-  font-size: 0.9em;
+  font-weight: 800;
 }
 
 .eyebrow {

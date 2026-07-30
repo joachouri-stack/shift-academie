@@ -28,25 +28,20 @@ export default function Formation() {
                 <article className={styles.card}>
                   <div className={styles.cardTop}>
                     <span className={styles.tag}>Disponible</span>
-                    <span className={styles.sector}>
-                      Création d&rsquo;activité
-                    </span>
                   </div>
                   <h3 className={styles.cardTitle}>{f.titre}</h3>
                   <p className={styles.accroche}>{f.accroche}</p>
                   <p className={styles.resume}>{f.resume}</p>
 
                   <ul className={styles.meta}>
-                    {f.cpf && (
-                      <li>
-                        <span className="badge-cpf">Finançable CPF</span>
-                      </li>
-                    )}
+                    {f.cpf && <li className="badge-cpf">Finançable CPF</li>}
                     {f.formats.map((fmt) => (
-                      <li key={fmt}>{fmt}</li>
+                      <li key={fmt} className="badge">
+                        {fmt}
+                      </li>
                     ))}
-                    <li>{f.niveau}</li>
-                    <li>{f.certification}</li>
+                    <li className="badge">{f.niveau}</li>
+                    <li className="badge">{f.certification}</li>
                   </ul>
 
                   <div className={styles.actions}>
