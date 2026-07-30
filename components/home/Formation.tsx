@@ -21,36 +21,44 @@ export default function Formation() {
         </Reveal>
 
         <div className={styles.grid}>
-          {formations.map((f) => (
-            <Reveal key={f.slug} className={styles.cardWrap}>
-              <article className={styles.card}>
-                <div className={styles.cardTop}>
-                  <span className={styles.tag}>Disponible</span>
-                  <span className={styles.sector}>Création d&rsquo;activité</span>
-                </div>
-                <h3 className={styles.cardTitle}>{f.titre}</h3>
-                <p className={styles.accroche}>{f.accroche}</p>
-                <p className={styles.resume}>{f.resume}</p>
+          {formations
+            .filter((f) => f.disponible)
+            .map((f) => (
+              <Reveal key={f.slug} className={styles.cardWrap}>
+                <article className={styles.card}>
+                  <div className={styles.cardTop}>
+                    <span className={styles.tag}>Disponible</span>
+                    <span className={styles.sector}>
+                      Création d&rsquo;activité
+                    </span>
+                  </div>
+                  <h3 className={styles.cardTitle}>{f.titre}</h3>
+                  <p className={styles.accroche}>{f.accroche}</p>
+                  <p className={styles.resume}>{f.resume}</p>
 
-                <ul className={styles.meta}>
-                  {f.formats.map((fmt) => (
-                    <li key={fmt}>{fmt}</li>
-                  ))}
-                  <li>{f.niveau}</li>
-                  <li>{f.certification}</li>
-                </ul>
+                  <ul className={styles.meta}>
+                    {f.formats.map((fmt) => (
+                      <li key={fmt}>{fmt}</li>
+                    ))}
+                    <li>{f.niveau}</li>
+                    <li>{f.certification}</li>
+                  </ul>
 
-                <div className={styles.actions}>
-                  <Button href="/programme" variant="primary" arrow>
-                    Voir le programme
-                  </Button>
-                  <Button href="/inscription" variant="outline">
-                    S&rsquo;inscrire
-                  </Button>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+                  <div className={styles.actions}>
+                    <Button
+                      href={f.href ?? "/formations"}
+                      variant="primary"
+                      arrow
+                    >
+                      Voir le programme
+                    </Button>
+                    <Button href="/inscription" variant="outline">
+                      S&rsquo;inscrire
+                    </Button>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
 
           {/* Carte évolutivité — prochaine formation */}
           <Reveal className={styles.cardWrap} delay={80}>

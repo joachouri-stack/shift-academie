@@ -4,8 +4,9 @@ import { site } from "@/lib/content";
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
+    "/formations",
+    "/formations/creer-son-entreprise",
     "/financement",
-    "/programme",
     "/a-propos",
     "/inscription",
     "/connexion",

@@ -16,8 +16,8 @@ export default function NotFound() {
           <Button href="/" variant="primary" arrow>
             Retour à l&rsquo;accueil
           </Button>
-          <Link href="/programme" className={styles.link}>
-            Voir le programme
+          <Link href="/formations" className={styles.link}>
+            Voir les formations
           </Link>
         </div>
       </div>

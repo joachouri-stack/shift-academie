@@ -343,3 +343,16 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Actions principales (inscription + téléchargement PDF) */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-7);
+}
+.dlIcon {
+  display: inline-flex;
+  vertical-align: -0.2em;
+  margin-right: 0.5em;
+}

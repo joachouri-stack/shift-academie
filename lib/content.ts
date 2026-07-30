@@ -26,8 +26,8 @@ export const site = {
 
 export const nav = [
   { label: "Accueil", href: "/" },
+  { label: "Formations", href: "/formations" },
   { label: "Financement", href: "/financement" },
-  { label: "Programme", href: "/programme" },
   { label: "À Propos", href: "/a-propos" },
 ] as const;
 
@@ -61,6 +61,10 @@ export type Formation = {
   niveau: string;
   certification: string;
   disponible: boolean;
+  /** Lien vers la fiche détaillée (si disponible). */
+  href?: string;
+  /** Chemin du PDF du programme (si disponible). */
+  pdf?: string;
 };
 
 export const formations: Formation[] = [
@@ -75,6 +79,20 @@ export const formations: Formation[] = [
     niveau: "Accessible aux débutants",
     certification: "Attestation de fin de formation",
     disponible: true,
+    href: "/formations/creer-son-entreprise",
+    pdf: "/programmes/creer-son-entreprise.pdf",
+  },
+  {
+    slug: "integrer-ia-artisanat",
+    titre: "Intégrer l'IA dans l'artisanat",
+    accroche: "Automatisez devis, rapports et administratif au quotidien.",
+    resume:
+      "Une formation 100 % pratique pour utiliser l'IA (ChatGPT, Claude, Gemini) dans votre quotidien d'artisan : devis, rapports, administratif et mémoires techniques.",
+    formats: ["Présentiel — Orange", "Distanciel"],
+    duree: "14 heures (2 jours)",
+    niveau: "Accessible aux débutants",
+    certification: "Attestation de fin de formation",
+    disponible: false,
   },
 ];
 
