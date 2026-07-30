@@ -50,6 +50,29 @@ export const heroBadges = [
   "Réponse sous 24h",
 ] as const;
 
+/* --- OPCO / financeurs partenaires ---
+   Déposer les logos officiels dans /public/logos/ (voir README). */
+export const financeurs = [
+  {
+    nom: "Constructys",
+    logo: "/logos/constructys.png",
+    secteur: "Bâtiment & Travaux Publics",
+    url: "https://www.constructys.fr",
+  },
+  {
+    nom: "L'Opcommerce",
+    logo: "/logos/opcommerce.png",
+    secteur: "Commerce",
+    url: "https://www.lopcommerce.com",
+  },
+  {
+    nom: "Opco EP",
+    logo: "/logos/opco-ep.png",
+    secteur: "Entreprises de proximité & service à la personne",
+    url: "https://www.opcoep.fr",
+  },
+] as const;
+
 /* --- Formations (tableau évolutif) --- */
 export type Formation = {
   slug: string;

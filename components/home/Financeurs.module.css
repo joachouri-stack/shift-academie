@@ -1,0 +1,103 @@
+.section {
+  padding-block: var(--section-y);
+  background: var(--blanc);
+}
+
+.head {
+  max-width: 680px;
+  margin-bottom: var(--space-7);
+}
+.title {
+  margin-top: var(--space-4);
+  font-size: var(--fs-h2);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.card {
+  min-width: 0;
+}
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  height: 100%;
+  padding: clamp(24px, 4vw, 34px);
+  background: var(--blanc-pure);
+  border: 1px solid var(--gris-line);
+  border-radius: var(--r-lg);
+  text-align: center;
+  transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease),
+    border-color var(--t) var(--ease);
+}
+.inner:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: rgba(var(--shift-orange-rgb), 0.35);
+}
+
+.logoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: 100%;
+}
+.logo {
+  max-height: 64px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}
+.fallback {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--noir);
+}
+
+.secteur {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* Badges financeurs */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  justify-content: center;
+}
+.badgesLabel {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.badgeRow li {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--or-deep);
+  background: rgba(var(--or-rgb), 0.12);
+  border: 1px solid rgba(var(--or-rgb), 0.3);
+  padding: 0.4em 0.9em;
+  border-radius: var(--r-pill);
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

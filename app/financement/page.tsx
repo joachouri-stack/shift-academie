@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
+import Financeurs from "@/components/home/Financeurs";
 import { financement } from "@/lib/content";
 import styles from "./financement.module.css";
 
@@ -43,6 +44,8 @@ export default function FinancementPage() {
         lead={financement.intro}
         breadcrumb={[{ label: "Accueil", href: "/" }, { label: "Financement" }]}
       />
+
+      <Financeurs />
 
       <div className="section">
         <div className="container">

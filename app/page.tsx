@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import Formation from "@/components/home/Formation";
 import Qualiopi from "@/components/home/Qualiopi";
+import Financeurs from "@/components/home/Financeurs";
 import Indicateurs from "@/components/home/Indicateurs";
 import Fondateur from "@/components/home/Fondateur";
 import Temoignages from "@/components/home/Temoignages";
@@ -57,6 +58,7 @@ export default function HomePage() {
       <Hero />
       <Formation />
       <Qualiopi />
+      <Financeurs />
       <Indicateurs />
       <Fondateur />
       <Temoignages />
