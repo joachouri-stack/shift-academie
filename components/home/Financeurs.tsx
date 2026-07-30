@@ -34,6 +34,7 @@ export default function Financeurs() {
                     alt={f.nom}
                     className={styles.logo}
                     fallbackClassName={styles.fallback}
+                    style={{ maxHeight: `${f.h}px` }}
                   />
                 </span>
                 <span className={styles.secteur}>{f.secteur}</span>

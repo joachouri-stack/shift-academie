@@ -11,11 +11,13 @@ export default function PartnerLogo({
   alt,
   className,
   fallbackClassName,
+  style,
 }: {
   src: string;
   alt: string;
   className?: string;
   fallbackClassName?: string;
+  style?: React.CSSProperties;
 }) {
   const [failed, setFailed] = useState(false);
 
@@ -29,6 +31,7 @@ export default function PartnerLogo({
       src={src}
       alt={alt}
       className={className}
+      style={style}
       onError={() => setFailed(true)}
       loading="lazy"
     />

@@ -58,24 +58,29 @@ export const financeurs = [
     logo: "/logos/constructys.png",
     secteur: "Bâtiment & Travaux Publics",
     url: "https://www.constructys.fr",
+    // hauteur optique (px) pour équilibrer les logos entre eux
+    h: 62,
   },
   {
     nom: "L'Opcommerce",
     logo: "/logos/opcommerce.png",
     secteur: "Commerce",
     url: "https://www.lopcommerce.com",
+    h: 44,
   },
   {
     nom: "Opco EP",
     logo: "/logos/opco-ep.png",
     secteur: "Entreprises de proximité & service à la personne",
     url: "https://www.opcoep.fr",
+    h: 70,
   },
   {
     nom: "CPF",
     logo: "/logos/cpf.png",
     secteur: "Compte Personnel de Formation",
     url: "https://www.moncompteformation.gouv.fr",
+    h: 56,
   },
 ] as const;
 
