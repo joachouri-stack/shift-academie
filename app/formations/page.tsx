@@ -72,6 +72,15 @@ export default function FormationsPage() {
                         </Button>
                       )}
                     </>
+                  ) : f.href ? (
+                    <>
+                      <Button href={f.href} variant="accent" arrow>
+                        Voir le programme
+                      </Button>
+                      <span className={styles.soonNote}>
+                        Inscriptions bientôt
+                      </span>
+                    </>
                   ) : (
                     <span className={styles.soonNote}>
                       Ouverture des inscriptions bientôt

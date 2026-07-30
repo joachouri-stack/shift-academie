@@ -93,6 +93,7 @@ export const formations: Formation[] = [
     niveau: "Accessible aux débutants",
     certification: "Attestation de fin de formation",
     disponible: false,
+    href: "/formations/integrer-ia-artisanat",
   },
 ];
 

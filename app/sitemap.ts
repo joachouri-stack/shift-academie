@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/formations",
     "/formations/creer-son-entreprise",
+    "/formations/integrer-ia-artisanat",
     "/financement",
     "/a-propos",
     "/inscription",

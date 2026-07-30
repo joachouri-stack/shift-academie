@@ -356,3 +356,31 @@
   vertical-align: -0.2em;
   margin-right: 0.5em;
 }
+
+/* Bandeau « formation à venir » (fiche artisanat) */
+.soonBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: rgba(var(--shift-orange-rgb), 0.08);
+  border: 1px solid rgba(var(--shift-orange-rgb), 0.3);
+  border-radius: var(--r-lg);
+  margin-bottom: var(--space-6);
+}
+.soonBanner p {
+  color: var(--text);
+  line-height: 1.6;
+}
+.soonBanner strong {
+  color: var(--text-strong);
+}
+.soonDot {
+  flex-shrink: 0;
+  margin-top: 0.45em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--shift-orange);
+  box-shadow: 0 0 0 4px rgba(var(--shift-orange-rgb), 0.2);
+}
