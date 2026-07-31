@@ -41,6 +41,25 @@ const jsonLd = {
         name: site.name,
         url: site.url,
       },
+      educationalCredentialAwarded: "Certification RS6776",
+      hasCourseInstance: [
+        {
+          "@type": "CourseInstance",
+          courseMode: ["Présentiel", "Distanciel"],
+          courseWorkload: "PT14H",
+          location: {
+            "@type": "Place",
+            name: "[Shift] Académie — Orange",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Orange",
+              postalCode: "84100",
+              addressRegion: "Provence-Alpes-Côte d'Azur",
+              addressCountry: "FR",
+            },
+          },
+        },
+      ],
     },
     {
       "@type": "FAQPage",

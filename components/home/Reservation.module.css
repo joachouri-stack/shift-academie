@@ -119,13 +119,13 @@
   color: var(--gris-3);
 }
 
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
   outline: none;
   border-color: var(--accent);
   background: var(--blanc-pure);
-  box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.12);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.28);
 }
 
 .field select {

@@ -20,9 +20,9 @@
   --gris-line: #e6e1d6;
   --gris-line-2: #efeae0;
 
-  /* --accent : sectoriel (actuellement BTP orange). Modifiable par secteur. */
-  --accent: #e8610a;
-  --accent-deep: #c4500a;
+  /* --accent : sectoriel. Aligné sur la teinte chaude de la marque « Shift ». */
+  --accent: #e85d1f;
+  --accent-deep: #cc4f18;
 
   /* Orange signature de la marque « Shift » (logo, badges de marque). */
   --shift-orange: #ff6b2b;
@@ -109,7 +109,7 @@
   --z-modal: 300;
 
   /* derive accent rgb for soft tints */
-  --accent-rgb: 232, 97, 10;
+  --accent-rgb: 232, 93, 31;
   --or-rgb: 201, 168, 76;
 
   color-scheme: light;
@@ -277,7 +277,7 @@ p {
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--or-deep);
+  color: #7a5f22;
 }
 
 .eyebrow::before {
