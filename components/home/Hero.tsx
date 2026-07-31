@@ -119,7 +119,7 @@ export default function Hero() {
             </li>
             <li>
               <span className={styles.cardKey}>Réponse</span>
-              <span className={styles.cardVal}>Sous 24h</span>
+              <span className={styles.cardVal}>Sous 24 h</span>
             </li>
           </ul>
 

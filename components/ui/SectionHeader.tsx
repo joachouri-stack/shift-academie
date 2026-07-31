@@ -4,6 +4,7 @@ import styles from "./SectionHeader.module.css";
 type SectionHeaderProps = {
   eyebrow?: string;
   title: React.ReactNode;
+  titleId?: string;
   lead?: React.ReactNode;
   align?: "left" | "center";
   tone?: "light" | "dark";
@@ -12,6 +13,7 @@ type SectionHeaderProps = {
 export default function SectionHeader({
   eyebrow,
   title,
+  titleId,
   lead,
   align = "left",
   tone = "light",
@@ -27,7 +29,9 @@ export default function SectionHeader({
           {eyebrow}
         </span>
       )}
-      <h2 className={styles.title}>{title}</h2>
+      <h2 id={titleId} className={styles.title}>
+        {title}
+      </h2>
       {lead && <p className={`lead ${styles.lead}`}>{lead}</p>}
     </Reveal>
   );

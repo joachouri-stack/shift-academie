@@ -9,6 +9,7 @@ export default function Temoignages() {
     <section className={styles.section} aria-labelledby="temoin-title">
       <div className="container">
         <SectionHeader
+          titleId="temoin-title"
           eyebrow="Ils en parlent"
           title="Des professionnels qui gagnent du temps."
           lead="Des retours sobres, concrets, orientés résultats."

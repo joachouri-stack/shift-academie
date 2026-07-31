@@ -15,9 +15,10 @@ export default function Faq() {
       <div className="container container-narrow">
         <SectionHeader
           align="center"
+          titleId="faq-title"
           eyebrow="Questions fréquentes"
           title="Toutes vos questions — réponses honnêtes."
-          lead="Pas de langue de bois. Si vous ne trouvez pas votre réponse ici, posez-la directement par téléphone ou via le formulaire — réponse sous 24h."
+          lead="Pas de langue de bois. Si vous ne trouvez pas votre réponse ici, posez-la directement par téléphone ou via le formulaire — réponse sous 24 h."
         />
 
         <Reveal className={styles.list}>

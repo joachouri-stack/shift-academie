@@ -2,7 +2,6 @@
   background: var(--noir);
   color: var(--text-on-dark-muted);
   padding-block: var(--space-9) var(--space-6);
-  margin-top: var(--section-y);
 }
 
 .top {

@@ -55,7 +55,7 @@ export default function Reservation() {
           <p className={styles.text}>
             Remplissez ce formulaire — on vous envoie la liste des documents
             nécessaires pour vous inscrire et préparer vos aides au financement
-            (CPF, Constructys…), et on vous rappelle sous 24h. Sans engagement,
+            (CPF, Constructys…), et on vous rappelle sous 24 h. Sans engagement,
             sans surprise.
           </p>
 
@@ -98,7 +98,7 @@ export default function Reservation() {
               <p>
                 Merci. On vous envoie la liste des documents nécessaires à
                 votre inscription et à vos aides au financement, et on vous
-                rappelle sous 24h.
+                rappelle sous 24 h.
               </p>
               <Button onClick={() => setStatus("idle")} variant="outline">
                 Envoyer une autre demande
@@ -221,7 +221,7 @@ export default function Reservation() {
               </Button>
 
               <p className={styles.reassure}>
-                Réponse sous 24h · Sans engagement · Données protégées RGPD
+                Réponse sous 24 h · Sans engagement · Données protégées RGPD
               </p>
             </form>
           )}

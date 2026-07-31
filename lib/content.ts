@@ -17,7 +17,7 @@ export const site = {
   whatsapp: "https://wa.me/33745210106",
   city: "Orange",
   founder: "Johane Achouri",
-  responseTime: "Réponse sous 24h",
+  responseTime: "Réponse sous 24 h",
   // Informations juridiques
   siret: "490 415 031 00122",
   naf: "8559A",
@@ -47,7 +47,7 @@ export const heroBadges = [
   "RS6776",
   "Présentiel et/ou distanciel",
   "Formation accessible",
-  "Réponse sous 24h",
+  "Réponse sous 24 h",
 ] as const;
 
 /* --- OPCO / financeurs partenaires ---
@@ -252,7 +252,7 @@ export const faq = [
   },
   {
     q: "Que se passe-t-il après l'inscription ?",
-    a: "Nous vous rappelons sous 24h pour cadrer votre projet, valider le format et préparer le financement avec vous. Sans engagement.",
+    a: "Nous vous rappelons sous 24 h pour cadrer votre projet, valider le format et préparer le financement avec vous. Sans engagement.",
   },
   {
     q: "La formation est-elle accessible aux personnes en situation de handicap ?",
@@ -528,9 +528,9 @@ export const financement = {
         "Nous préparons votre dossier de financement avec vous, étape par étape, pour vous éviter la paperasse.",
     },
     {
-      titre: "Contact sous 24h, sans engagement",
+      titre: "Contact sous 24 h, sans engagement",
       texte:
-        "Vous nous contactez, on vous rappelle sous 24h pour faire le point. Aucune obligation à la clé.",
+        "Vous nous contactez, on vous rappelle sous 24 h pour faire le point. Aucune obligation à la clé.",
     },
   ],
 } as const;

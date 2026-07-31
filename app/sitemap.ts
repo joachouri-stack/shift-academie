@@ -10,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/financement",
     "/a-propos",
     "/inscription",
-    "/connexion",
     "/mentions-legales",
     "/confidentialite",
     "/cgv",

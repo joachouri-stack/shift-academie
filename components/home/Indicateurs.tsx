@@ -10,6 +10,7 @@ export default function Indicateurs() {
     <section className="section" id="indicateurs" aria-labelledby="ind-title">
       <div className="container">
         <SectionHeader
+          titleId="ind-title"
           eyebrow="Indicateurs de qualité"
           title="Nos résultats publics."
           lead="Conformément à la certification Qualiopi, nous publions nos indicateurs de performance en toute transparence. Mis à jour à chaque session."
