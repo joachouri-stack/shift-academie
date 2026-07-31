@@ -110,7 +110,7 @@ export const formations: Formation[] = [
     accroche: "De l'idée au lancement, avec l'IA comme copilote.",
     resume:
       "Structurez votre projet, choisissez le bon statut, montez votre offre et automatisez votre administratif grâce à des outils d'intelligence artificielle simples et concrets.",
-    formats: ["Présentiel — Orange", "Distanciel"],
+    formats: ["Présentiel", "Distanciel"],
     duree: "14 heures (2 jours)",
     niveau: "Accessible aux débutants",
     certification: "Attestation de fin de formation",
@@ -278,6 +278,7 @@ export const programme = {
     "Une formation complète pour maîtriser toutes les étapes de la création d'entreprise : principes fondamentaux, cadre juridique et fiscal, bases économiques et financières, puis leviers de développement et de pérennisation. 14 heures réparties sur 2 jours.",
   duree: "14 heures (2 jours)",
   format: "Présentiel et/ou distanciel",
+  lieu: "Orange (84100)",
   public: [
     "Porteurs de projet",
     "Créateurs d'entreprise",

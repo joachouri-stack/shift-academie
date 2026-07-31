@@ -24,6 +24,7 @@ const facts = [
 const infos = [
   { label: "Durée", value: programme.duree },
   { label: "Format", value: programme.format },
+  { label: "Lieu de la formation", value: programme.lieu },
   { label: "Accessibilité handicap", value: programme.accessibilite },
   { label: "Validation", value: programme.validation },
   { label: "Financement possible", value: programme.financement },
