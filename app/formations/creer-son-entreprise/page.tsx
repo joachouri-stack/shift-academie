@@ -156,55 +156,119 @@ export default function FormationCreerEntreprisePage() {
             </Reveal>
           </div>
 
-          {/* Modules par jour */}
+          {/* Le déroulé — timeline Matin / Après-midi */}
           <div className={styles.block}>
-            <h2 className={styles.h2}>Le déroulé, module par module</h2>
+            <h2 className={styles.h2}>Le déroulé de la formation</h2>
             <p className="lead">
-              Deux journées, quatre modules : des principes fondamentaux
-              jusqu&rsquo;à la pérennisation de votre entreprise.
+              Deux journées rythmées, du matin à l&rsquo;après-midi : des
+              principes fondamentaux jusqu&rsquo;à la pérennisation de votre
+              entreprise.
             </p>
           </div>
 
-          {programme.jours.map((jour, ji) => (
-            <section key={jour.label} className={styles.jour}>
-              <Reveal className={styles.jourHead}>
-                <span className={styles.jourLabel}>{jour.label}</span>
-                <h3 className={styles.jourTitle}>{jour.titre}</h3>
-                <span className={styles.jourDuree}>{jour.duree}</span>
-              </Reveal>
+          <div className={styles.timeline}>
+            {programme.jours.map((jour) => (
+              <section key={jour.label} className={styles.day}>
+                <Reveal className={styles.dayHead}>
+                  <span className={styles.dayBadge}>{jour.label}</span>
+                  <h3 className={styles.dayTitle}>{jour.titre}</h3>
+                  <span className={styles.dayDuree}>{jour.duree}</span>
+                </Reveal>
 
-              <ol className={styles.modules}>
-                {jour.modules.map((m, i) => (
-                  <Reveal
-                    key={m.num}
-                    as="li"
-                    className={styles.module}
-                    delay={i * 40}
-                  >
-                    <div className={styles.moduleHead}>
-                      <span className={styles.moduleNum}>{m.num}</span>
-                      <h4 className={styles.moduleTitle}>{m.titre}</h4>
-                      {m.horaire && (
-                        <span className={styles.moduleHoraire}>
-                          {m.horaire} · {m.duree}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className={styles.moduleBody}>
-                      {m.sections.map((sec) => (
-                        <div key={sec.titre} className={styles.moduleGroup}>
-                          <span className={styles.groupLabel}>{sec.titre}</span>
-                          <CheckList items={sec.points} variant="dot" />
+                <div className={styles.moments}>
+                  {jour.modules.map((m, i) => {
+                    const startHour = parseInt(m.horaire ?? "0", 10);
+                    const isMatin = startHour < 12;
+                    const moment = isMatin ? "Matin" : "Après-midi";
+                    return (
+                      <Reveal
+                        as="article"
+                        key={m.num}
+                        className={styles.moment}
+                        delay={i * 70}
+                      >
+                        <div className={styles.momentRail} aria-hidden="true">
+                          <span
+                            className={`${styles.momentNode} ${
+                              isMatin ? styles.momentNodeMatin : ""
+                            }`}
+                          >
+                            <svg viewBox="0 0 24 24" width="15" height="15">
+                              <circle
+                                cx="12"
+                                cy="12"
+                                r="8.5"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1.9"
+                              />
+                              <path
+                                d="M12 7.5V12l3 2"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1.9"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </span>
                         </div>
-                      ))}
-                    </div>
-                  </Reveal>
-                ))}
-              </ol>
-              {ji === 0 && <div className={styles.jourSep} aria-hidden="true" />}
-            </section>
-          ))}
+
+                        <div className={styles.momentCard}>
+                          <div className={styles.momentHead}>
+                            <span
+                              className={`${styles.momentTag} ${
+                                isMatin ? styles.momentTagMatin : ""
+                              }`}
+                            >
+                              {moment}
+                            </span>
+                            {m.horaire && (
+                              <span className={styles.momentTime}>
+                                {m.horaire} · {m.duree}
+                              </span>
+                            )}
+                          </div>
+
+                          <h4 className={styles.momentTitle}>{m.titre}</h4>
+
+                          <ul className={styles.themes}>
+                            {m.sections.map((sec) => (
+                              <li key={sec.titre} className={styles.theme}>
+                                <span
+                                  className={styles.themeCheck}
+                                  aria-hidden="true"
+                                >
+                                  <svg viewBox="0 0 16 16" width="13" height="13">
+                                    <path
+                                      d="M3.5 8.5l3 3 6-7"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      strokeWidth="2"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </span>
+                                <span className={styles.themeText}>
+                                  <span className={styles.themeName}>
+                                    {sec.titre}
+                                  </span>
+                                  <span className={styles.themePoints}>
+                                    {sec.points.join(" · ")}
+                                  </span>
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </Reveal>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
+          </div>
 
           {/* Pédagogie + Moyens */}
           <div className={styles.twoCol}>

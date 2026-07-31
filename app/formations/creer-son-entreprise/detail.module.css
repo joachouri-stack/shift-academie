@@ -132,20 +132,30 @@
   border-radius: var(--r-pill);
 }
 
-/* Jour */
-.jour {
-  margin-top: var(--space-7);
+/* ==========================================================================
+   Le déroulé — timeline Matin / Après-midi
+   ========================================================================== */
+.timeline {
+  margin-top: var(--space-6);
 }
-.jourHead {
+
+.day {
+  margin-top: var(--space-8);
+}
+.day:first-child {
+  margin-top: var(--space-5);
+}
+
+.dayHead {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   gap: var(--space-3);
   padding-bottom: var(--space-4);
-  border-bottom: 2px solid var(--noir);
   margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--gris-line);
 }
-.jourLabel {
+.dayBadge {
   font-family: var(--font-sans);
   font-size: var(--fs-xs);
   font-weight: 700;
@@ -153,119 +163,155 @@
   text-transform: uppercase;
   color: var(--blanc);
   background: var(--noir);
-  padding: 0.4em 0.9em;
+  padding: 0.45em 0.95em;
   border-radius: var(--r-pill);
 }
-.jourTitle {
-  font-size: var(--fs-h3);
-  margin: 0;
-}
-.jourDuree {
-  margin-left: auto;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  color: var(--or-deep);
-}
-.jourSep {
-  height: 1px;
-  background: var(--gris-line);
-  margin-top: var(--space-7);
-}
-
-/* Modules */
-.modules {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-}
-.module {
-  padding: clamp(22px, 3vw, 32px);
-  background: var(--surface-card);
-  border: 1px solid var(--gris-line);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-xs);
-  transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease);
-}
-.module:hover {
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
-}
-
-.moduleHead {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-2) var(--space-3);
-  padding-bottom: var(--space-4);
-  margin-bottom: var(--space-4);
-  border-bottom: 1px solid var(--gris-line-2);
-}
-.moduleTitle {
-  flex: 1;
-  min-width: 60%;
-}
-.moduleNum {
-  flex-shrink: 0;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--or-deep);
-  line-height: 1;
-}
-.moduleTitle {
+.dayTitle {
   font-size: var(--fs-h3);
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.01em;
   margin: 0;
 }
-
-.moduleHoraire {
+.dayDuree {
   margin-left: auto;
-  flex-shrink: 0;
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   font-weight: 600;
-  color: var(--or-deep);
-  background: rgba(var(--or-rgb), 0.12);
-  padding: 0.35em 0.75em;
+  color: var(--accent-deep);
+  background: rgba(var(--accent-rgb), 0.1);
+  padding: 0.35em 0.85em;
   border-radius: var(--r-pill);
-  white-space: nowrap;
 }
 
-.moduleBody {
+/* Moments (matin / après-midi) reliés par un rail vertical */
+.moments {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.moment {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-5);
+  grid-template-columns: 38px 1fr;
+  gap: var(--space-3);
+  align-items: stretch;
 }
-.moduleGroup {
-  min-width: 0;
+.momentRail {
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
-.groupLabel {
-  display: block;
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--or-deep);
-  margin-bottom: var(--space-3);
+.momentRail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 8px;
+  height: calc(100% + var(--space-4));
+  width: 2px;
+  background: var(--gris-line);
+}
+.moment:last-child .momentRail::before {
+  display: none;
+}
+.momentNode {
+  position: relative;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--blanc-pure);
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  box-shadow: 0 6px 16px -6px rgba(var(--accent-rgb), 0.55);
+}
+.momentNodeMatin {
+  background: linear-gradient(135deg, var(--or-soft), var(--or-deep));
+  box-shadow: 0 6px 16px -6px rgba(var(--or-rgb), 0.5);
 }
 
-.outils {
-  grid-column: 1 / -1;
+.momentCard {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 28px);
+  background: var(--surface-card);
+  border: 1px solid var(--gris-line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease);
 }
-.outilsList {
+.momentCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.momentHead {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-3);
 }
-.outilsList li {
+.momentTag {
+  font-family: var(--font-sans);
   font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  background: rgba(var(--accent-rgb), 0.1);
+  padding: 0.35em 0.8em;
+  border-radius: var(--r-pill);
+}
+.momentTagMatin {
+  color: #6f581f;
+  background: rgba(var(--or-rgb), 0.16);
+}
+.momentTime {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.momentTitle {
+  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin: 0 0 var(--space-4);
+  color: var(--text-strong);
+}
+
+.themes {
+  display: grid;
+  gap: var(--space-4);
+}
+.theme {
+  display: flex;
+  gap: 0.7em;
+}
+.themeCheck {
+  flex-shrink: 0;
+  margin-top: 0.15em;
+  display: inline-flex;
+  color: var(--accent);
+}
+.themeText {
+  min-width: 0;
+}
+.themeName {
+  display: block;
+  font-size: var(--fs-sm);
   font-weight: 600;
   color: var(--text-strong);
-  background: var(--gris-line-2);
-  border: 1px solid var(--gris-line);
-  padding: 0.4em 0.8em;
-  border-radius: var(--r-pill);
+  line-height: 1.4;
+}
+.themePoints {
+  display: block;
+  margin-top: 3px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 /* Infos pratiques */
@@ -334,13 +380,6 @@
     grid-template-columns: 260px 1fr;
     gap: var(--space-5);
     align-items: baseline;
-  }
-}
-
-@media (min-width: 860px) {
-  /* Modules : objectifs / contenu / cas pratiques côte à côte */
-  .moduleBody {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
