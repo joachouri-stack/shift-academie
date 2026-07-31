@@ -76,7 +76,7 @@
   --gutter: clamp(20px, 5vw, 48px);
 
   /* --- Section vertical rhythm (responsive) --- */
-  --section-y: clamp(64px, 9vw, 128px);
+  --section-y: clamp(44px, 6vw, 84px);
 
   /* --- Typographie --- */
   /* Police unique du site : Inter (titres, texte, logo). */
