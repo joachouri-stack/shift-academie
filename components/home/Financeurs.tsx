@@ -42,15 +42,6 @@ export default function Financeurs() {
             </Reveal>
           ))}
         </ul>
-
-        <Reveal className={styles.badges}>
-          <span className={styles.badgesLabel}>Financements possibles :</span>
-          <ul className={styles.badgeRow}>
-            {financeurs.map((f) => (
-              <li key={f.nom}>{f.nom}</li>
-            ))}
-          </ul>
-        </Reveal>
       </div>
     </section>
   );
