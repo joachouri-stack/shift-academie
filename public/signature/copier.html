@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Signature e-mail — [Shift] Académie</title>
+<style>
+  :root { --bg:#f4f2ec; --ink:#1a1a22; --muted:#6b6b76; --line:#e6e1d6; --panel:#fff;
+    --accent:#ff6b2b; --accent-deep:#e85d1f; --ok:#1f8a54; --shadow:0 18px 50px -24px rgba(10,10,15,.35); }
+  @media (prefers-color-scheme:dark){ :root{ --bg:#0a0a0f; --ink:#f4f2ec; --muted:#9a968c; --line:#23232c; --shadow:0 18px 50px -20px rgba(0,0,0,.6);} }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:600px;margin:0 auto;padding:clamp(22px,6vw,52px) clamp(16px,5vw,30px) 70px;}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 10px;}
+  h1{font-size:clamp(1.45rem,1.1rem+1.7vw,1.95rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 8px;}
+  .sub{color:var(--muted);font-size:15px;margin:0 0 24px;}
+  .card{background:var(--panel);border-radius:18px;box-shadow:var(--shadow);padding:24px 22px;border:1px solid rgba(0,0,0,.05);}
+  .sig-img{display:block;width:470px;max-width:100%;height:auto;border:0;}
+  .imgfb{display:none;border:1px dashed #c9c4b8;border-radius:10px;padding:16px;color:#8a8578;font-size:13px;background:#faf8f3;}
+  .sig-links{font-size:13px;line-height:1.7;color:#7c7c85;margin-top:8px;}
+  .btn{-webkit-appearance:none;appearance:none;border:0;width:100%;margin-top:22px;padding:16px 20px;border-radius:14px;background:var(--accent);color:#fff;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer;transition:transform .15s ease,background .2s ease;}
+  .btn:active{transform:scale(.98);}
+  .btn.done{background:var(--ok);}
+  h2{font-size:14px;letter-spacing:.02em;margin:34px 0 12px;text-transform:uppercase;color:var(--muted);font-weight:700;}
+  .steps{margin:0;padding:0;list-style:none;counter-reset:s;}
+  .steps li{position:relative;padding:0 0 16px 42px;counter-increment:s;}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--accent);color:#fff;font-size:14px;font-weight:700;}
+  .steps li:not(:last-child)::after{content:"";position:absolute;left:13px;top:30px;bottom:1px;width:2px;background:var(--line);}
+  .steps .t{font-weight:600;}
+  .steps .n{color:var(--muted);font-size:14px;margin-top:2px;}
+  .tip{margin-top:14px;padding:15px 17px;border-radius:13px;background:rgba(255,107,43,.09);border:1px solid rgba(255,107,43,.22);font-size:14px;}
+  .tip b{color:var(--accent-deep);}
+  @media (prefers-reduced-motion:reduce){.btn{transition:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Signature e-mail</p>
+  <h1>Votre signature [Shift] Académie</h1>
+  <p class="sub">Touchez « Copier la signature », puis collez-la dans votre app Mail. Le design et vos coordonnées sont dans une image (jamais cassée par iOS ni le mode sombre) ; la ligne bleue en dessous rend les coordonnées cliquables.</p>
+
+  <div class="card">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" id="sig" style="border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+      <tr><td style="padding:0;">
+        <img class="sig-img" src="./shift-academie.png" width="470" alt="[Shift] Académie — Johane A. — Organisme de formation certifié Qualiopi — La formation concrète pour lancer votre activité. — www.shift-academie.fr · contact@shift-academie.fr · +33 7 45 21 01 06" onerror="this.style.display='none';document.getElementById('imgfb').style.display='block';">
+        <span class="imgfb" id="imgfb">Image introuvable — vérifiez que le site est bien déployé.</span>
+      </td></tr>
+      <tr><td class="sig-links" style="font-size:13px;line-height:1.7;color:#7c7c85;padding-top:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+        <a href="https://shift-academie.fr">www.shift-academie.fr</a>&nbsp;·&nbsp;<a href="mailto:contact@shift-academie.fr">contact@shift-academie.fr</a>&nbsp;·&nbsp;<a href="tel:+33745210106">+33&nbsp;7&nbsp;45&nbsp;21&nbsp;01&nbsp;06</a>
+      </td></tr>
+    </table>
+  </div>
+
+  <button class="btn" id="copyBtn" type="button"><span id="btnLabel">Copier la signature</span></button>
+
+  <h2>iPhone (app Mail)</h2>
+  <ol class="steps">
+    <li><div class="t">Touchez <strong>« Copier la signature »</strong> ci-dessus</div><div class="n">Le bouton devient vert.</div></li>
+    <li><div class="t">Ouvrez <strong>Réglages ▸ Apps ▸ Mail ▸ Signature</strong></div></li>
+    <li><div class="t">Effacez le texte, maintenez le doigt, puis <strong>Coller</strong></div></li>
+  </ol>
+
+  <h2>Mac (app Mail)</h2>
+  <ol class="steps">
+    <li><div class="t">Touchez <strong>« Copier la signature »</strong></div></li>
+    <li><div class="t">Mail ▸ <strong>Réglages ▸ Signatures</strong></div></li>
+    <li><div class="t"><strong>Décochez</strong> « Toujours faire correspondre à la police par défaut »</div></li>
+    <li><div class="t">Cliquez à droite, puis <strong>Coller</strong> (⌘V)</div></li>
+  </ol>
+
+  <div class="tip"><b>Test :</b> envoyez-vous un e-mail, ouvrez-le sur <b>Gmail en mode sombre</b> — l'image reste nette, les coordonnées bleues restent cliquables.</div>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('copyBtn'), label=document.getElementById('btnLabel'), sig=document.getElementById('sig');
+  function done(){btn.classList.add('done');label.textContent='✓ Copié — collez dans Mail';setTimeout(function(){btn.classList.remove('done');label.textContent='Copier la signature';},3400);}
+  function fallback(){try{var r=document.createRange();r.selectNode(sig);var s=window.getSelection();s.removeAllRanges();s.addRange(r);var ok=document.execCommand('copy');s.removeAllRanges();if(ok){done();return;}}catch(e){}label.textContent='Sélectionnez la signature puis Copier';}
+  btn.addEventListener('click',function(){
+    var html=sig.outerHTML.replace('./shift-academie.png','https://shift-academie.fr/signature/shift-academie.png');
+    if(window.ClipboardItem&&navigator.clipboard&&navigator.clipboard.write){
+      try{var item=new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob(['www.shift-academie.fr · contact@shift-academie.fr · +33 7 45 21 01 06'],{type:'text/plain'})});
+        navigator.clipboard.write([item]).then(done,fallback);return;}catch(e){}
+    }
+    fallback();
+  });
+})();
+</script>
+</body>
+</html>
