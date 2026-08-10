@@ -20,7 +20,7 @@ const jsonLd = {
       logo: `${site.url}/icon.png`,
       image: `${site.url}/og.png`,
       email: site.email,
-      telephone: "+33745210106",
+      telephone: "+33783915050",
       description: site.description,
       address: {
         "@type": "PostalAddress",

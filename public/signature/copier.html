@@ -43,11 +43,11 @@
   <div class="card">
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" id="sig" style="border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
       <tr><td style="padding:0;">
-        <img class="sig-img" src="./shift-academie.png" width="470" alt="[Shift] Académie — Johane A. — Organisme de formation certifié Qualiopi — La formation concrète pour lancer votre activité. — www.shift-academie.fr · contact@shift-academie.fr · +33 7 45 21 01 06" onerror="this.style.display='none';document.getElementById('imgfb').style.display='block';">
+        <img class="sig-img" src="./shift-academie.png" width="470" alt="[Shift] Académie — Johane A. — Organisme de formation certifié Qualiopi — La formation concrète pour lancer votre activité. — www.shift-academie.fr · contact@shift-academie.fr · +33 7 83 91 50 50" onerror="this.style.display='none';document.getElementById('imgfb').style.display='block';">
         <span class="imgfb" id="imgfb">Image introuvable — vérifiez que le site est bien déployé.</span>
       </td></tr>
       <tr><td class="sig-links" style="font-size:13px;line-height:1.7;color:#7c7c85;padding-top:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
-        <a href="https://shift-academie.fr">www.shift-academie.fr</a>&nbsp;·&nbsp;<a href="mailto:contact@shift-academie.fr">contact@shift-academie.fr</a>&nbsp;·&nbsp;<a href="tel:+33745210106">+33&nbsp;7&nbsp;45&nbsp;21&nbsp;01&nbsp;06</a>
+        <a href="https://shift-academie.fr">www.shift-academie.fr</a>&nbsp;·&nbsp;<a href="mailto:contact@shift-academie.fr">contact@shift-academie.fr</a>&nbsp;·&nbsp;<a href="tel:+33783915050">+33&nbsp;7&nbsp;83&nbsp;91&nbsp;50&nbsp;50</a>
       </td></tr>
     </table>
   </div>
@@ -80,7 +80,7 @@
   btn.addEventListener('click',function(){
     var html=sig.outerHTML.replace('./shift-academie.png','https://shift-academie.fr/signature/shift-academie.png');
     if(window.ClipboardItem&&navigator.clipboard&&navigator.clipboard.write){
-      try{var item=new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob(['www.shift-academie.fr · contact@shift-academie.fr · +33 7 45 21 01 06'],{type:'text/plain'})});
+      try{var item=new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob(['www.shift-academie.fr · contact@shift-academie.fr · +33 7 83 91 50 50'],{type:'text/plain'})});
         navigator.clipboard.write([item]).then(done,fallback);return;}catch(e){}
     }
     fallback();
