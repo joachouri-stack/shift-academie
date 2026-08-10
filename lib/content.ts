@@ -11,7 +11,7 @@ export const site = {
   description:
     "Organisme de formation certifié Qualiopi. Apprenez à utiliser l'IA pour créer, lancer et développer votre activité avec des outils simples et concrets.",
   url: "https://shift-academie.fr",
-  email: "info@shift-academie.fr",
+  email: "contact@shift-academie.fr",
   phone: "+33 7 83 91 50 50",
   phoneDisplay: "+33 7 83 91 50 50",
   whatsapp: "https://wa.me/33783915050",
