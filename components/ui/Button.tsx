@@ -1,7 +1,14 @@
 import Link from "next/link";
 import styles from "./Button.module.css";
 
-type Variant = "primary" | "accent" | "gold" | "outline" | "ghost" | "light";
+type Variant =
+  | "primary"
+  | "accent"
+  | "gold"
+  | "outline"
+  | "ghost"
+  | "light"
+  | "whatsapp";
 type Size = "sm" | "md" | "lg";
 
 type CommonProps = {
