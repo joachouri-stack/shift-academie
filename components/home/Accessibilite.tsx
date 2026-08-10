@@ -94,7 +94,14 @@ export default function Accessibilite() {
               <span className={styles.contactLabel}>Email</span>
               <span className={styles.contactValue}>{site.email}</span>
             </a>
-            <Button href={site.whatsapp} external variant="accent" arrow>
+            <Button
+              href={`${site.whatsapp}?text=${encodeURIComponent(
+                "Bonjour, je souhaite des informations sur vos formations."
+              )}`}
+              external
+              variant="accent"
+              arrow
+            >
               WhatsApp · Échanger maintenant
             </Button>
           </div>
