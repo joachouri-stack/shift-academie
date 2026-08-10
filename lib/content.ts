@@ -15,7 +15,7 @@ export const site = {
   phone: "+33 7 83 91 50 50",
   phoneDisplay: "+33 7 83 91 50 50",
   whatsapp: "https://wa.me/33783915050",
-  city: "Orange",
+  city: "France",
   founder: "Johane Achouri",
   responseTime: "Réponse sous 24 h",
   // Informations juridiques
@@ -36,8 +36,7 @@ export const badges = [
   "Qualiopi",
   "Constructys",
   "RS6776",
-  "Présentiel",
-  "Distanciel",
+  "100 % à distance",
   "Accessibilité handicap",
 ] as const;
 
@@ -45,7 +44,7 @@ export const heroBadges = [
   "Qualiopi",
   "Constructys",
   "RS6776",
-  "Présentiel et/ou distanciel",
+  "100 % à distance",
   "Formation accessible",
   "Réponse sous 24 h",
 ] as const;
@@ -110,7 +109,7 @@ export const formations: Formation[] = [
     accroche: "De l'idée au lancement, avec l'IA comme copilote.",
     resume:
       "Structurez votre projet, choisissez le bon statut, montez votre offre et automatisez votre administratif grâce à des outils d'intelligence artificielle simples et concrets.",
-    formats: ["Présentiel", "Distanciel"],
+    formats: ["100 % à distance"],
     duree: "14 heures (2 jours)",
     niveau: "Accessible aux débutants",
     certification: "Attestation de fin de formation",
@@ -125,7 +124,7 @@ export const formations: Formation[] = [
     accroche: "Automatisez devis, rapports et administratif au quotidien.",
     resume:
       "Une formation 100 % pratique pour utiliser l'IA (ChatGPT, Claude, Gemini) dans votre quotidien d'artisan : devis, rapports, administratif et mémoires techniques.",
-    formats: ["Présentiel — Orange", "Distanciel"],
+    formats: ["100 % à distance"],
     duree: "14 heures (2 jours)",
     niveau: "Accessible aux débutants",
     certification: "Attestation de fin de formation",
@@ -140,7 +139,7 @@ export const prochaineSession = {
   disponible: true,
   /** Ex. "Du 5 au 7 novembre 2026" */
   dates: "Du 5 au 7 novembre 2026",
-  lieu: "Orange",
+  lieu: "À distance (visio)",
 };
 
 /* --- Indicateurs de qualité (Qualiopi) --- */
@@ -166,7 +165,7 @@ export const accessibilite = [
     num: "02",
     titre: "Adaptations possibles",
     texte:
-      "Supports en gros caractères, audio, sous-titres. Durée modulable. Lieu accessible PMR. Pauses adaptées.",
+      "Supports en gros caractères, audio, sous-titres. Durée modulable. Plateforme adaptée. Pauses adaptées.",
   },
   {
     num: "03",
@@ -231,12 +230,12 @@ export const faq = [
     a: "Oui, un financement est possible selon votre profil et votre situation. Nous vous accompagnons pour préparer un dossier clair, notamment via Constructys. La prise en charge dépend des critères de l'organisme financeur.",
   },
   {
-    q: "Est-elle disponible en présentiel ?",
-    a: "Oui, la formation est proposée en présentiel à Orange, dans un cadre adapté à l'apprentissage.",
+    q: "Comment se déroule la formation ?",
+    a: "La formation est 100 % à distance, en visioconférence, avec un espace apprenant pour suivre votre progression à votre rythme. Vous participez d'où vous voulez, partout en France.",
   },
   {
-    q: "Est-elle disponible à distance ?",
-    a: "Oui, la formation est également accessible en distanciel, avec un espace apprenant pour suivre votre progression à votre rythme.",
+    q: "De quel matériel ai-je besoin ?",
+    a: "Un ordinateur avec une connexion Internet suffit. Tout se fait en visioconférence et vous recevez les supports en ligne.",
   },
   {
     q: "Faut-il déjà savoir utiliser l'IA ?",
@@ -277,8 +276,8 @@ export const programme = {
   intro:
     "Une formation complète pour maîtriser toutes les étapes de la création d'entreprise : principes fondamentaux, cadre juridique et fiscal, bases économiques et financières, puis leviers de développement et de pérennisation. 14 heures réparties sur 2 jours.",
   duree: "14 heures (2 jours)",
-  format: "Présentiel et/ou distanciel",
-  lieu: "Orange (84100)",
+  format: "100 % à distance (visioconférence)",
+  lieu: "À distance (visioconférence)",
   public: [
     "Porteurs de projet",
     "Créateurs d'entreprise",

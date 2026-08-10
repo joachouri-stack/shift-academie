@@ -24,11 +24,9 @@ const jsonLd = {
       description: site.description,
       address: {
         "@type": "PostalAddress",
-        addressLocality: site.city,
-        postalCode: "84100",
-        addressRegion: "Provence-Alpes-Côte d'Azur",
         addressCountry: "FR",
       },
+      areaServed: "FR",
     },
     {
       "@type": "Course",
@@ -45,18 +43,11 @@ const jsonLd = {
       hasCourseInstance: [
         {
           "@type": "CourseInstance",
-          courseMode: ["Présentiel", "Distanciel"],
+          courseMode: "Online",
           courseWorkload: "PT14H",
           location: {
-            "@type": "Place",
-            name: "[Shift] Académie — Orange",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Orange",
-              postalCode: "84100",
-              addressRegion: "Provence-Alpes-Côte d'Azur",
-              addressCountry: "FR",
-            },
+            "@type": "VirtualLocation",
+            url: site.url,
           },
         },
       ],

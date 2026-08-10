@@ -73,7 +73,7 @@ export default function Footer() {
                   WhatsApp
                 </a>
               </li>
-              <li className={styles.muted}>{site.city}</li>
+              <li className={styles.muted}>Formations à distance · {site.city}</li>
             </ul>
           </div>
         </div>

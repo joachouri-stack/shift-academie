@@ -44,8 +44,8 @@ export default function CgvPage() {
 
         <h2>3. Tarifs</h2>
         <p>
-          Les tarifs sont communiqués sur devis, en fonction du format
-          (présentiel ou distanciel) et du nombre de participants. Tarif en
+          Les tarifs sont communiqués sur devis, en fonction du programme
+          et du nombre de participants. Tarif en
           vigueur : <span className="placeholder">[à préciser sur devis]</span>.
         </p>
 
@@ -60,9 +60,9 @@ export default function CgvPage() {
 
         <h2>5. Modalités de réalisation</h2>
         <p>
-          Les modalités (dates, lieu, durée, format) sont précisées dans la
-          convention de formation. Les formations sont dispensées en présentiel
-          à {site.city} et/ou à distance via l&rsquo;espace apprenant.
+          Les modalités (dates, durée, format) sont précisées dans la
+          convention de formation. Les formations sont dispensées 100 % à
+          distance, en visioconférence, via l&rsquo;espace apprenant.
         </p>
 
         <h2>6. Droit de rétractation et annulation</h2>

@@ -157,27 +157,17 @@ export default function Reservation() {
                 />
               </div>
 
-              <div className={styles.row}>
-                <div className={styles.field}>
-                  <label htmlFor="format">Format souhaité</label>
-                  <select id="format" name="format" defaultValue="Présentiel — Orange">
-                    <option>Présentiel — Orange</option>
-                    <option>Distanciel</option>
-                    <option>Indifférent</option>
-                  </select>
-                </div>
-                <div className={styles.field}>
-                  <label htmlFor="periode">Période souhaitée</label>
-                  <select
-                    id="periode"
-                    name="periode"
-                    defaultValue="Le plus tôt possible"
-                  >
-                    <option>Le plus tôt possible</option>
-                    <option>Sous 4-6 semaines</option>
-                    <option>À définir ensemble</option>
-                  </select>
-                </div>
+              <div className={styles.field}>
+                <label htmlFor="periode">Période souhaitée</label>
+                <select
+                  id="periode"
+                  name="periode"
+                  defaultValue="Le plus tôt possible"
+                >
+                  <option>Le plus tôt possible</option>
+                  <option>Sous 4-6 semaines</option>
+                  <option>À définir ensemble</option>
+                </select>
               </div>
 
               <div className={styles.field}>

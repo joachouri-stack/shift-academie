@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "Constructys",
     "RS6776",
     "formation professionnelle",
-    "Orange",
+    "formation à distance",
   ],
   authors: [{ name: site.founder }],
   alternates: { canonical: "/" },

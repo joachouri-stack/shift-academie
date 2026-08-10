@@ -107,7 +107,7 @@ export default function Hero() {
           <ul className={styles.cardList}>
             <li>
               <span className={styles.cardKey}>Format</span>
-              <span className={styles.cardVal}>Présentiel &amp; distanciel</span>
+              <span className={styles.cardVal}>100 % à distance</span>
             </li>
             <li>
               <span className={styles.cardKey}>Niveau</span>

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 const facts = [
   { label: "Durée", value: formation.duree },
-  { label: "Format", value: "Présentiel et/ou distanciel" },
+  { label: "Format", value: "100 % à distance" },
   { label: "Niveau", value: formation.niveau },
   { label: "À la clé", value: formation.certification },
 ];
