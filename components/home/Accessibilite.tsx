@@ -96,7 +96,7 @@ export default function Accessibilite() {
             </a>
             <Button
               href={`${site.whatsapp}?text=${encodeURIComponent(
-                "Bonjour, je souhaite des informations sur vos formations."
+                "Bonjour, je souhaite en savoir plus sur vos formations et les possibilités de financement (CPF, OPCO)."
               )}`}
               external
               variant="accent"
