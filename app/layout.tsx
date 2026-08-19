@@ -28,7 +28,6 @@ export const metadata: Metadata = {
     "formation à distance",
   ],
   authors: [{ name: site.founder }],
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "fr_FR",

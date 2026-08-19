@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import Formation from "@/components/home/Formation";
 import Qualiopi from "@/components/home/Qualiopi";
@@ -9,6 +10,11 @@ import Accessibilite from "@/components/home/Accessibilite";
 import Reservation from "@/components/home/Reservation";
 import Faq from "@/components/home/Faq";
 import { site, faq } from "@/lib/content";
+
+// Canonical propre à l'accueil (les autres pages s'auto-canonicalisent sur leur URL).
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const jsonLd = {
   "@context": "https://schema.org",
