@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Intégrer l'IA dans l'artisanat — Formation (à venir)",
   description:
     "Formation « Intégrer l'IA dans l'artisanat » (14h, 2 jours) : automatiser devis, rapports, administratif et mémoires techniques grâce à l'IA. Ouverture des inscriptions prochainement.",
+  alternates: { canonical: "/formations/integrer-ia-artisanat" },
 };
 
 const facts = [

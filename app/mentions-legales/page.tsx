@@ -6,6 +6,7 @@ import { site } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Mentions légales",
   description: "Mentions légales de [Shift] Académie.",
+  alternates: { canonical: "/mentions-legales" },
 };
 
 export default function MentionsLegalesPage() {

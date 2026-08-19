@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Formations",
   description:
     "Le catalogue des formations [Shift] Académie. Des parcours concrets pour créer, lancer et développer votre activité. Organisme certifié Qualiopi.",
+  alternates: { canonical: "/formations" },
 };
 
 export default function FormationsPage() {

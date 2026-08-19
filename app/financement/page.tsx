@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Financement",
   description:
     "Financez votre formation : Constructys, dispositifs selon profil, accompagnement au montage du dossier. Contact sous 24h, sans engagement.",
+  alternates: { canonical: "/financement" },
 };
 
 const etapes = [

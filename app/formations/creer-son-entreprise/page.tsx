@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Créer son entreprise — Formation",
   description:
     "Formation « Créer son entreprise » (14h, 2 jours) : principes fondamentaux, cadre juridique et fiscal, bases économiques et financières, développement et pérennisation. Programme détaillé à télécharger.",
+  alternates: { canonical: "/formations/creer-son-entreprise" },
 };
 
 const facts = [

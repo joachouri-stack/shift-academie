@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Conditions générales",
   description:
     "Conditions générales de vente et de prestation de [Shift] Académie.",
+  alternates: { canonical: "/cgv" },
 };
 
 export default function CgvPage() {

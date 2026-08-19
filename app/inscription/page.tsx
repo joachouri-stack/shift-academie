@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "S'inscrire — Réservez votre place",
   description:
     "Réservez votre place gratuitement. On vous rappelle sous 24h pour cadrer votre projet et monter votre dossier de financement Constructys.",
+  alternates: { canonical: "/inscription" },
 };
 
 export default function InscriptionPage() {

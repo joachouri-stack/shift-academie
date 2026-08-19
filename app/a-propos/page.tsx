@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "À Propos",
   description:
     "[Shift] Académie, organisme de formation fondé par Johane Achouri. Notre mission : rendre l'IA simple, utile et accessible aux professionnels de terrain.",
+  alternates: { canonical: "/a-propos" },
 };
 
 const engagements = [
