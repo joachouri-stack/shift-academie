@@ -4,6 +4,7 @@ import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 import { BadgeRow } from "@/components/ui/Badge";
 import { badges, formations } from "@/lib/content";
+import { courseJsonLd } from "@/lib/jsonld";
 import styles from "../creer-son-entreprise/detail.module.css";
 
 const formation = formations.find((f) => f.slug === "integrer-ia-artisanat")!;
@@ -59,6 +60,10 @@ function CheckList({ items }: { items: readonly string[] }) {
 export default function FormationArtisanatPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd(formation)) }}
+      />
       <PageHero
         eyebrow="Formation · Prochainement"
         title={formation.titre}

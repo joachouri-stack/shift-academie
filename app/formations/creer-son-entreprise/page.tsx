@@ -4,6 +4,7 @@ import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 import { BadgeRow } from "@/components/ui/Badge";
 import { programme, badges, formations } from "@/lib/content";
+import { courseJsonLd } from "@/lib/jsonld";
 import styles from "./detail.module.css";
 
 const formation = formations.find((f) => f.slug === "creer-son-entreprise")!;
@@ -73,6 +74,10 @@ function CheckList({
 export default function FormationCreerEntreprisePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd(formation)) }}
+      />
       <PageHero
         eyebrow="Formation"
         title={formation.titre}
