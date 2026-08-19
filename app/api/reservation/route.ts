@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { randomUUID } from "crypto";
 import { db } from "@/lib/db";
 import { leads } from "@/lib/db/schema";
+import { sendLeadNotification } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -79,6 +80,22 @@ export async function POST(request: Request) {
     );
   }
 
-  // TODO (jalon suivant) : notification email (Resend/SMTP).
+  // Notification e-mail (best-effort : le lead est déjà enregistré, on ne bloque
+  // pas la réponse au visiteur si l'envoi échoue).
+  try {
+    await sendLeadNotification({
+      prenom: data.prenom,
+      nom: data.nom,
+      metier: data.metier,
+      nombre: data.nombre,
+      email: data.email,
+      telephone: data.telephone,
+      periode: data.periode,
+      message: data.message,
+    });
+  } catch (err) {
+    console.error("[reservation] échec notification email:", err);
+  }
+
   return NextResponse.json({ ok: true });
 }
