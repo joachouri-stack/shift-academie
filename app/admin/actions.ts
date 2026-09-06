@@ -44,16 +44,24 @@ export async function updateFormation(fd: FormData) {
   await requireAdmin();
   const id = s(fd, "id");
   if (!id) return;
+  const dureeHeures = Math.max(0, parseFloat(s(fd, "dureeHeures").replace(",", ".")) || 0);
+  const prixEuros = Math.max(0, parseFloat(s(fd, "prixEuros").replace(",", ".")) || 0);
   db.update(formations)
     .set({
       title: s(fd, "title"),
       description: s(fd, "description"),
       format: s(fd, "format") || "distanciel",
       published: fd.get("published") === "on",
+      objectifsPedagogiques: s(fd, "objectifsPedagogiques"),
+      dureeHeures,
+      methodesPedagogiques: s(fd, "methodesPedagogiques"),
+      modalitesEvaluation: s(fd, "modalitesEvaluation"),
+      prixCents: Math.round(prixEuros * 100),
     })
     .where(eq(formations.id, id))
     .run();
   revalidatePath(`/admin/formations/${id}`);
+  revalidatePath(`/admin/programme/${id}`);
   revalidatePath("/admin");
 }
 

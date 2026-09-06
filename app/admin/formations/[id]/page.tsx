@@ -116,10 +116,69 @@ export default async function FormationAdminPage({
                 Publiée (visible par les apprenants)
               </label>
             </div>
+
+            <label className={styles.lbl}>
+              Objectifs pédagogiques (un par ligne)
+              <textarea
+                name="objectifsPedagogiques"
+                defaultValue={formation.objectifsPedagogiques}
+                rows={5}
+                placeholder={"Comparer les statuts juridiques\nÉtablir un budget prévisionnel\n…"}
+                className={styles.input}
+              />
+            </label>
+            <div className={styles.editRow}>
+              <label className={styles.lbl}>
+                Durée (heures)
+                <input
+                  name="dureeHeures"
+                  type="number"
+                  step="0.5"
+                  min={0}
+                  defaultValue={formation.dureeHeures || ""}
+                  className={styles.input}
+                />
+              </label>
+              <label className={styles.lbl}>
+                Prix (€ HT)
+                <input
+                  name="prixEuros"
+                  type="number"
+                  step="1"
+                  min={0}
+                  defaultValue={formation.prixCents ? formation.prixCents / 100 : ""}
+                  className={styles.input}
+                />
+              </label>
+            </div>
+            <label className={styles.lbl}>
+              Méthodes pédagogiques
+              <textarea
+                name="methodesPedagogiques"
+                defaultValue={formation.methodesPedagogiques}
+                rows={3}
+                className={styles.input}
+              />
+            </label>
+            <label className={styles.lbl}>
+              Modalités d&rsquo;évaluation
+              <textarea
+                name="modalitesEvaluation"
+                defaultValue={formation.modalitesEvaluation}
+                rows={3}
+                className={styles.input}
+              />
+            </label>
+
             <button type="submit" className={styles.btnPrimary}>
               Enregistrer
             </button>
           </form>
+          <p className={styles.hintNote}>
+            <Link href={`/admin/programme/${formation.id}`} className={styles.reportLink}>
+              Voir / exporter le programme (PDF conforme OPCO) →
+            </Link>
+          </p>
         </div>
 
         {/* Modules */}

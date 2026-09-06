@@ -1,0 +1,33 @@
+.objList {
+  margin: 0;
+  padding-left: 1.2em;
+  list-style: disc;
+}
+.objList li {
+  list-style: disc;
+  margin-bottom: 0.35em;
+  font-size: var(--fs-sm);
+}
+.prose {
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-line;
+}
+.modOl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.modOl li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--gris-line-2);
+  font-size: var(--fs-sm);
+}
+.modDur {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
