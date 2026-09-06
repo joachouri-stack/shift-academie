@@ -139,15 +139,66 @@
 }
 
 .continue {
+  display: inline-block;
+  text-align: center;
   margin-top: var(--space-6);
-  width: 100%;
-  padding: 1rem;
+  padding: 0.9rem 1.8rem;
   font-size: var(--fs-body);
   font-weight: 600;
-  color: var(--text-muted);
-  background: var(--gris-line-2);
+  color: var(--blanc-pure);
+  background: var(--accent);
   border-radius: var(--r-pill);
-  cursor: not-allowed;
+  transition: background-color var(--t) var(--ease);
+}
+.continue:hover {
+  background: var(--accent-deep);
+}
+
+/* Liste des formations inscrites */
+.courses {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+/* Sommaire des modules dans une carte */
+.elMods {
+  list-style: none;
+  margin-top: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.elModLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.7em 0.9em;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--gris-line);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  transition: border-color var(--t) var(--ease);
+}
+.elModLink:hover {
+  border-color: var(--gris-3);
+}
+.elModDot {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gris-line-2);
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+}
+.elModDotOk {
+  background: rgba(31, 138, 84, 0.14);
+  color: #1f8a54;
 }
 
 .note {

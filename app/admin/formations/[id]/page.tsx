@@ -3,13 +3,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { eq, asc } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { formations, modules } from "@/lib/db/schema";
+import { formations, modules, inscriptions, users } from "@/lib/db/schema";
 import { requireAdmin } from "@/lib/auth";
 import {
   updateFormation,
   deleteFormation,
   addModule,
   deleteModule,
+  updateModuleMedia,
+  enrollLearner,
 } from "../../actions";
 import styles from "../../admin.module.css";
 
@@ -39,6 +41,27 @@ export default async function FormationAdminPage({
     .where(eq(modules.formationId, id))
     .orderBy(asc(modules.position))
     .all();
+
+  const inscrits = db
+    .select({
+      id: inscriptions.id,
+      statut: inscriptions.statut,
+      dateDebut: inscriptions.dateDebut,
+      email: users.email,
+      firstName: users.firstName,
+      lastName: users.lastName,
+    })
+    .from(inscriptions)
+    .innerJoin(users, eq(users.id, inscriptions.apprenantId))
+    .where(eq(inscriptions.formationId, id))
+    .all();
+
+  function fmtDuree(sec: number) {
+    if (!sec) return "";
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return `${m} min ${s.toString().padStart(2, "0")}`;
+  }
 
   return (
     <section className={styles.wrap}>
@@ -120,15 +143,44 @@ export default async function FormationAdminPage({
           ) : (
             <ul className={styles.list}>
               {mods.map((m, i) => (
-                <li key={m.id} className={styles.fItem}>
-                  <span className={styles.fTitle}>
-                    <span className={styles.modNum}>{i + 1}.</span> {m.title}
-                  </span>
-                  <form action={deleteModule}>
+                <li key={m.id} className={styles.modCard}>
+                  <div className={styles.fItem}>
+                    <span className={styles.fTitle}>
+                      <span className={styles.modNum}>{i + 1}.</span> {m.title}
+                      {m.dureeSecondes > 0 && (
+                        <span className={styles.modMeta}>
+                          {" "}
+                          · {fmtDuree(m.dureeSecondes)}
+                        </span>
+                      )}
+                    </span>
+                    <form action={deleteModule}>
+                      <input type="hidden" name="id" value={m.id} />
+                      <input type="hidden" name="formationId" value={formation.id} />
+                      <button type="submit" className={styles.btnDanger}>
+                        Supprimer
+                      </button>
+                    </form>
+                  </div>
+                  <form action={updateModuleMedia} className={styles.mediaForm}>
                     <input type="hidden" name="id" value={m.id} />
                     <input type="hidden" name="formationId" value={formation.id} />
-                    <button type="submit" className={styles.btnDanger}>
-                      Supprimer
+                    <input
+                      name="videoRef"
+                      defaultValue={m.videoRef}
+                      placeholder="URL de la vidéo (MP4 / HLS)"
+                      className={styles.input}
+                    />
+                    <input
+                      name="dureeSecondes"
+                      type="number"
+                      min={0}
+                      defaultValue={m.dureeSecondes || ""}
+                      placeholder="Durée réelle (secondes)"
+                      className={styles.input}
+                    />
+                    <button type="submit" className={styles.btnPrimary}>
+                      Enregistrer
                     </button>
                   </form>
                 </li>
@@ -136,8 +188,46 @@ export default async function FormationAdminPage({
             </ul>
           )}
           <p className={styles.hintNote}>
-            Les vidéos et documents PDF par module arriveront au prochain
-            incrément.
+            La « durée réelle » (en secondes) sert de référence pour valider
+            l&rsquo;assiduité (module validé à 90 % du temps réellement visionné).
+          </p>
+        </div>
+
+        {/* Apprenants inscrits */}
+        <div className={styles.block}>
+          <h2 className={styles.h2}>Apprenants inscrits</h2>
+          <form action={enrollLearner} className={styles.addRow}>
+            <input type="hidden" name="formationId" value={formation.id} />
+            <input
+              name="email"
+              type="email"
+              placeholder="email@apprenant.fr (compte déjà créé)"
+              required
+              className={styles.input}
+            />
+            <button type="submit" className={styles.btnPrimary}>
+              + Inscrire
+            </button>
+          </form>
+
+          {inscrits.length === 0 ? (
+            <p className={styles.empty}>Aucun apprenant inscrit.</p>
+          ) : (
+            <ul className={styles.list}>
+              {inscrits.map((ins) => (
+                <li key={ins.id} className={styles.fItem}>
+                  <span className={styles.fTitle}>
+                    {ins.firstName} {ins.lastName}
+                    <span className={styles.modMeta}> · {ins.email}</span>
+                  </span>
+                  <span className={styles.modMeta}>{ins.statut}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          <p className={styles.hintNote}>
+            L&rsquo;apprenant doit d&rsquo;abord avoir créé son compte via
+            « Se connecter » pour pouvoir être inscrit.
           </p>
         </div>
 
