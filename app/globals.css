@@ -364,3 +364,20 @@ p {
     transform: none !important;
   }
 }
+
+/* ==========================================================================
+   Impression — masque le chrome du site et soigne les sauts de page.
+   Utilisé notamment par le rapport d'assiduité (/admin/assiduite/[id]).
+   ========================================================================== */
+@media print {
+  header,
+  footer {
+    display: none !important;
+  }
+  table {
+    page-break-inside: auto;
+  }
+  tr {
+    page-break-inside: avoid;
+  }
+}

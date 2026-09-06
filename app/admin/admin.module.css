@@ -319,6 +319,17 @@
   flex: 1 1 180px;
 }
 
+.reportLink {
+  flex-shrink: 0;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--accent-deep);
+  white-space: nowrap;
+}
+.reportLink:hover {
+  text-decoration: underline;
+}
+
 @media (min-width: 640px) {
   .stats {
     grid-template-columns: repeat(4, 1fr);

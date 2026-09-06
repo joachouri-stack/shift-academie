@@ -220,7 +220,12 @@ export default async function FormationAdminPage({
                     {ins.firstName} {ins.lastName}
                     <span className={styles.modMeta}> · {ins.email}</span>
                   </span>
-                  <span className={styles.modMeta}>{ins.statut}</span>
+                  <Link
+                    href={`/admin/assiduite/${ins.id}`}
+                    className={styles.reportLink}
+                  >
+                    Rapport d&rsquo;assiduité →
+                  </Link>
                 </li>
               ))}
             </ul>
