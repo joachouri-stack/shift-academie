@@ -11,6 +11,9 @@ import {
   leads,
   inscriptions,
   users,
+  questionsTutorat,
+  sessionsDirect,
+  sessionsDirectParticipants,
 } from "@/lib/db/schema";
 import { requireAdmin } from "@/lib/auth";
 
@@ -146,6 +149,83 @@ export async function enrollLearner(fd: FormData) {
     })
     .run();
   revalidatePath(`/admin/formations/${formationId}`);
+}
+
+/* --- Tutorat (accompagnement asynchrone) --- */
+export async function answerQuestion(fd: FormData) {
+  const admin = await requireAdmin();
+  const id = s(fd, "id");
+  const reponse = s(fd, "reponse");
+  if (!id || !reponse) return;
+  db.update(questionsTutorat)
+    .set({ reponse, dateReponse: new Date(), formateurId: admin.id })
+    .where(eq(questionsTutorat.id, id))
+    .run();
+  revalidatePath("/admin/tutorat");
+}
+
+/* --- Sessions live (accompagnement synchrone) --- */
+export async function createSessionDirect(fd: FormData) {
+  const admin = await requireAdmin();
+  const dateStr = s(fd, "date");
+  if (!dateStr) return;
+  const date = new Date(dateStr);
+  if (Number.isNaN(date.getTime())) return;
+  const dureeMinutes = Math.max(0, parseInt(s(fd, "dureeMinutes") || "0", 10) || 0);
+  db.insert(sessionsDirect)
+    .values({
+      id: randomUUID(),
+      date,
+      dureeMinutes,
+      sujet: s(fd, "sujet"),
+      formateurId: admin.id,
+      createdAt: new Date(),
+    })
+    .run();
+  revalidatePath("/admin/sessions");
+}
+
+export async function toggleParticipant(fd: FormData) {
+  await requireAdmin();
+  const sessionDirectId = s(fd, "sessionDirectId");
+  const apprenantId = s(fd, "apprenantId");
+  if (!sessionDirectId || !apprenantId) return;
+  const existing = db
+    .select()
+    .from(sessionsDirectParticipants)
+    .where(
+      and(
+        eq(sessionsDirectParticipants.sessionDirectId, sessionDirectId),
+        eq(sessionsDirectParticipants.apprenantId, apprenantId)
+      )
+    )
+    .get();
+  if (existing) {
+    db.delete(sessionsDirectParticipants)
+      .where(eq(sessionsDirectParticipants.id, existing.id))
+      .run();
+  } else {
+    db.insert(sessionsDirectParticipants)
+      .values({
+        id: randomUUID(),
+        sessionDirectId,
+        apprenantId,
+        createdAt: new Date(),
+      })
+      .run();
+  }
+  revalidatePath("/admin/sessions");
+}
+
+export async function deleteSessionDirect(fd: FormData) {
+  await requireAdmin();
+  const id = s(fd, "id");
+  if (!id) return;
+  db.delete(sessionsDirectParticipants)
+    .where(eq(sessionsDirectParticipants.sessionDirectId, id))
+    .run();
+  db.delete(sessionsDirect).where(eq(sessionsDirect.id, id)).run();
+  revalidatePath("/admin/sessions");
 }
 
 /* --- Demandes de réservation --- */

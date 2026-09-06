@@ -338,3 +338,82 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* --- Navigation e-learning (dashboard) --- */
+.navRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+/* --- Tutorat (cartes questions) --- */
+.qCards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.qCard {
+  border: 1px solid var(--gris-line);
+  border-radius: var(--r-sm);
+  background: var(--blanc-pure);
+  padding: var(--space-4);
+}
+.qCardHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+.qWho {
+  font-weight: 600;
+  color: var(--text-strong);
+  font-size: var(--fs-sm);
+}
+.qText {
+  color: var(--text);
+  font-size: var(--fs-sm);
+}
+.qAnswer {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--r-xs);
+  background: rgba(31, 138, 84, 0.08);
+  color: var(--text);
+  font-size: var(--fs-sm);
+}
+.answerForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.answerForm .input {
+  flex: 1 1 240px;
+}
+
+/* --- Feuille de présence (sessions live) --- */
+.presenceGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+.presenceBtn {
+  font-size: var(--fs-sm);
+  padding: 0.5em 0.9em;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--gris-line);
+  background: var(--blanc-pure);
+  color: var(--text);
+}
+.presenceBtn:hover {
+  border-color: var(--gris-3);
+}
+.presenceOn {
+  border-color: #1f8a54;
+  background: rgba(31, 138, 84, 0.12);
+  color: #1f8a54;
+  font-weight: 600;
+}

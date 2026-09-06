@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { and, asc, eq } from "drizzle-orm";
+import { and, asc, desc, eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import {
   formations,
   inscriptions,
   modules,
   progression,
+  questionsTutorat,
 } from "@/lib/db/schema";
 import { getCurrentUser } from "@/lib/auth";
+import { askQuestion } from "@/app/espace/actions";
 import VideoPlayer from "@/components/learn/VideoPlayer";
 import styles from "./module.module.css";
 
@@ -80,6 +82,13 @@ export default async function ModulePage({
   const currentIndex = allMods.findIndex((m) => m.id === mod.id);
   const next = allMods[currentIndex + 1];
 
+  const questions = db
+    .select()
+    .from(questionsTutorat)
+    .where(eq(questionsTutorat.inscriptionId, inscription.id))
+    .orderBy(desc(questionsTutorat.dateQuestion))
+    .all();
+
   return (
     <section className={styles.wrap}>
       <div className="container">
@@ -129,6 +138,44 @@ export default async function ModulePage({
                 Module suivant : {next.title} →
               </Link>
             )}
+
+            {/* Tutorat : question au formateur */}
+            <section className={styles.tutorat}>
+              <h2 className={styles.tutTitle}>Une question sur ce module ?</h2>
+              <form action={askQuestion} className={styles.askForm}>
+                <input type="hidden" name="inscriptionId" value={inscription.id} />
+                <input type="hidden" name="moduleId" value={mod.id} />
+                <textarea
+                  name="question"
+                  rows={3}
+                  required
+                  placeholder="Posez votre question au formateur…"
+                  className={styles.askInput}
+                />
+                <button type="submit" className={styles.askBtn}>
+                  Envoyer au formateur
+                </button>
+              </form>
+
+              {questions.length > 0 && (
+                <ul className={styles.qList}>
+                  {questions.map((q) => (
+                    <li key={q.id} className={styles.qItem}>
+                      <p className={styles.qQ}>{q.question}</p>
+                      {q.reponse ? (
+                        <p className={styles.qR}>
+                          <strong>Réponse :</strong> {q.reponse}
+                        </p>
+                      ) : (
+                        <p className={styles.qPending}>
+                          En attente de réponse du formateur…
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
           </div>
 
           {/* Colonne latérale : sommaire */}

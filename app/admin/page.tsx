@@ -50,6 +50,16 @@ export default async function AdminPage() {
           </form>
         </div>
 
+        {/* Navigation e-learning */}
+        <div className={styles.navRow}>
+          <Link href="/admin/tutorat" className={styles.btnGhost}>
+            Tutorat
+          </Link>
+          <Link href="/admin/sessions" className={styles.btnGhost}>
+            Sessions live
+          </Link>
+        </div>
+
         {/* Stats */}
         <div className={styles.stats}>
           <div className={styles.stat}>
