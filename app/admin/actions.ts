@@ -16,9 +16,21 @@ import {
   sessionsDirectParticipants,
 } from "@/lib/db/schema";
 import { requireAdmin } from "@/lib/auth";
+import { MEDIA_DIR, isSafeName } from "@/lib/media";
+import { unlink } from "fs/promises";
+import { join } from "path";
 
 function s(fd: FormData, k: string) {
   return String(fd.get(k) ?? "").trim();
+}
+
+/** Supprime le fichier vidéo auto-hébergé référencé par `/api/media/…` (best-effort). */
+async function deleteHostedVideoFile(videoRef: string) {
+  const prefix = "/api/media/";
+  if (!videoRef.startsWith(prefix)) return; // URL externe : rien à supprimer sur disque
+  const name = videoRef.slice(prefix.length);
+  if (!isSafeName(name)) return;
+  await unlink(join(MEDIA_DIR, name)).catch(() => {});
 }
 
 /* --- Formations --- */
@@ -104,7 +116,40 @@ export async function deleteModule(fd: FormData) {
   const id = s(fd, "id");
   const formationId = s(fd, "formationId");
   if (!id) return;
+  // Supprime aussi le fichier vidéo auto-hébergé le cas échéant.
+  const mod = db.select().from(modules).where(eq(modules.id, id)).get();
+  if (mod?.videoRef) await deleteHostedVideoFile(mod.videoRef);
   db.delete(modules).where(eq(modules.id, id)).run();
+  revalidatePath(`/admin/formations/${formationId}`);
+}
+
+/* Titre + descriptif d'un module. */
+export async function updateModule(fd: FormData) {
+  await requireAdmin();
+  const id = s(fd, "id");
+  const formationId = s(fd, "formationId");
+  const title = s(fd, "title");
+  if (!id || !title) return;
+  db.update(modules)
+    .set({ title, contenu: s(fd, "contenu") })
+    .where(eq(modules.id, id))
+    .run();
+  revalidatePath(`/admin/formations/${formationId}`);
+}
+
+/* Retire la vidéo d'un module (et supprime le fichier auto-hébergé). */
+export async function deleteModuleVideo(fd: FormData) {
+  await requireAdmin();
+  const id = s(fd, "id");
+  const formationId = s(fd, "formationId");
+  if (!id) return;
+  const mod = db.select().from(modules).where(eq(modules.id, id)).get();
+  if (!mod) return;
+  if (mod.videoRef) await deleteHostedVideoFile(mod.videoRef);
+  db.update(modules)
+    .set({ videoRef: "", dureeSecondes: 0 })
+    .where(eq(modules.id, id))
+    .run();
   revalidatePath(`/admin/formations/${formationId}`);
 }
 

@@ -10,7 +10,9 @@ import {
   deleteFormation,
   addModule,
   deleteModule,
+  updateModule,
   updateModuleMedia,
+  deleteModuleVideo,
   enrollLearner,
 } from "../../actions";
 import VideoUpload from "@/components/learn/VideoUpload";
@@ -226,15 +228,50 @@ export default async function FormationAdminPage({
                           · {fmtDuree(m.dureeSecondes)}
                         </span>
                       )}
+                      {m.videoRef ? (
+                        <span className={styles.modBadgeOk}>● vidéo en ligne</span>
+                      ) : (
+                        <span className={styles.modBadgeNo}>○ aucune vidéo</span>
+                      )}
                     </span>
                     <form action={deleteModule}>
                       <input type="hidden" name="id" value={m.id} />
                       <input type="hidden" name="formationId" value={formation.id} />
                       <button type="submit" className={styles.btnDanger}>
-                        Supprimer
+                        Supprimer le module
                       </button>
                     </form>
                   </div>
+
+                  {/* Titre + descriptif du module */}
+                  <form action={updateModule} className={styles.mediaForm}>
+                    <input type="hidden" name="id" value={m.id} />
+                    <input type="hidden" name="formationId" value={formation.id} />
+                    <label className={styles.lbl}>
+                      Titre du module
+                      <input
+                        name="title"
+                        defaultValue={m.title}
+                        required
+                        className={styles.input}
+                      />
+                    </label>
+                    <label className={styles.lbl}>
+                      Descriptif (ce que l&rsquo;apprenant voit sous la vidéo)
+                      <textarea
+                        name="contenu"
+                        defaultValue={m.contenu}
+                        rows={3}
+                        placeholder="Résumé du module, points clés abordés…"
+                        className={styles.input}
+                      />
+                    </label>
+                    <button type="submit" className={styles.btnPrimary}>
+                      Enregistrer le titre et le descriptif
+                    </button>
+                  </form>
+
+                  {/* Vidéo */}
                   <VideoUpload moduleId={m.id} formationId={formation.id} />
                   <form action={updateModuleMedia} className={styles.mediaForm}>
                     <input type="hidden" name="id" value={m.id} />
@@ -254,9 +291,18 @@ export default async function FormationAdminPage({
                       className={styles.input}
                     />
                     <button type="submit" className={styles.btnPrimary}>
-                      Enregistrer
+                      Enregistrer la vidéo
                     </button>
                   </form>
+                  {m.videoRef && (
+                    <form action={deleteModuleVideo}>
+                      <input type="hidden" name="id" value={m.id} />
+                      <input type="hidden" name="formationId" value={formation.id} />
+                      <button type="submit" className={styles.btnDangerSoft}>
+                        Supprimer la vidéo de ce module
+                      </button>
+                    </form>
+                  )}
                 </li>
               ))}
             </ul>
