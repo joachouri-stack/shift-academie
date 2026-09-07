@@ -64,6 +64,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Statistiques Umami (RGPD, sans cookie) — actif uniquement si les 2
+  // variables sont définies dans Coolify. Rien à toucher dans le code.
+  const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC;
+  const umamiId = process.env.NEXT_PUBLIC_UMAMI_ID;
+
   return (
     <html lang="fr" className={inter.variable}>
       <head>
@@ -73,6 +78,9 @@ export default function RootLayout({
             __html: "document.documentElement.classList.add('js');",
           }}
         />
+        {umamiSrc && umamiId && (
+          <script defer src={umamiSrc} data-website-id={umamiId} />
+        )}
       </head>
       <body>
         <a href="#contenu" className="skip-link">
