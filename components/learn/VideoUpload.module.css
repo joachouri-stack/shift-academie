@@ -1,0 +1,61 @@
+.uploader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text, #1a1a1a);
+  cursor: pointer;
+}
+
+.input {
+  font-size: 0.8rem;
+}
+.input:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+.barWrap {
+  position: relative;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-accent, #e8622c);
+  transition: width 0.2s ease;
+}
+
+.pct {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.ok {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #1a7a45;
+}
+
+.err {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #c0392b;
+}

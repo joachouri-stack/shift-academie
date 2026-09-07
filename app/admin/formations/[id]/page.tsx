@@ -13,6 +13,7 @@ import {
   updateModuleMedia,
   enrollLearner,
 } from "../../actions";
+import VideoUpload from "@/components/learn/VideoUpload";
 import styles from "../../admin.module.css";
 
 export const metadata: Metadata = {
@@ -234,13 +235,14 @@ export default async function FormationAdminPage({
                       </button>
                     </form>
                   </div>
+                  <VideoUpload moduleId={m.id} formationId={formation.id} />
                   <form action={updateModuleMedia} className={styles.mediaForm}>
                     <input type="hidden" name="id" value={m.id} />
                     <input type="hidden" name="formationId" value={formation.id} />
                     <input
                       name="videoRef"
                       defaultValue={m.videoRef}
-                      placeholder="URL de la vidéo (MP4 / HLS)"
+                      placeholder="URL de la vidéo (MP4 / HLS) ou /api/media/…"
                       className={styles.input}
                     />
                     <input
