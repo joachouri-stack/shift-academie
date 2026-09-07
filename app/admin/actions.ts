@@ -56,6 +56,7 @@ export async function updateFormation(fd: FormData) {
       dureeHeures,
       methodesPedagogiques: s(fd, "methodesPedagogiques"),
       modalitesEvaluation: s(fd, "modalitesEvaluation"),
+      modalitesAccompagnement: s(fd, "modalitesAccompagnement"),
       prixCents: Math.round(prixEuros * 100),
     })
     .where(eq(formations.id, id))

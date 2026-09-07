@@ -16,6 +16,9 @@ mkdirSync(dirname(dbPath), { recursive: true });
 
 const sqlite = new Database(dbPath);
 sqlite.pragma("journal_mode = WAL");
+// Attend (jusqu'à 5 s) si la base est verrouillée au lieu d'échouer —
+// évite les races entre les workers parallèles de build (SQLITE_BUSY).
+sqlite.pragma("busy_timeout = 5000");
 
 /* Initialisation idempotente du schéma (pas de migration externe à lancer). */
 sqlite.exec(`
@@ -172,15 +175,22 @@ function addColumnIfMissing(table: string, column: string, ddl: string) {
   }
 }
 
-addColumnIfMissing("formations", "slug", "slug TEXT");
-addColumnIfMissing("formations", "objectifs_pedagogiques", "objectifs_pedagogiques TEXT NOT NULL DEFAULT ''");
-addColumnIfMissing("formations", "duree_heures", "duree_heures REAL NOT NULL DEFAULT 0");
-addColumnIfMissing("formations", "methodes_pedagogiques", "methodes_pedagogiques TEXT NOT NULL DEFAULT ''");
-addColumnIfMissing("formations", "modalites_evaluation", "modalites_evaluation TEXT NOT NULL DEFAULT ''");
-addColumnIfMissing("formations", "prix_cents", "prix_cents INTEGER NOT NULL DEFAULT 0");
-addColumnIfMissing("modules", "duree_secondes", "duree_secondes INTEGER NOT NULL DEFAULT 0");
-addColumnIfMissing("modules", "video_ref", "video_ref TEXT NOT NULL DEFAULT ''");
-addColumnIfMissing("modules", "contenu", "contenu TEXT NOT NULL DEFAULT ''");
+/* Sérialisé via une transaction IMMEDIATE : sous concurrence (workers de build
+   parallèles), un seul process traverse la zone « lire les colonnes puis ALTER »
+   à la fois — les autres attendent (busy_timeout) puis constatent que tout existe. */
+const runMigrations = sqlite.transaction(() => {
+  addColumnIfMissing("formations", "slug", "slug TEXT");
+  addColumnIfMissing("formations", "objectifs_pedagogiques", "objectifs_pedagogiques TEXT NOT NULL DEFAULT ''");
+  addColumnIfMissing("formations", "duree_heures", "duree_heures REAL NOT NULL DEFAULT 0");
+  addColumnIfMissing("formations", "methodes_pedagogiques", "methodes_pedagogiques TEXT NOT NULL DEFAULT ''");
+  addColumnIfMissing("formations", "modalites_evaluation", "modalites_evaluation TEXT NOT NULL DEFAULT ''");
+  addColumnIfMissing("formations", "modalites_accompagnement", "modalites_accompagnement TEXT NOT NULL DEFAULT ''");
+  addColumnIfMissing("formations", "prix_cents", "prix_cents INTEGER NOT NULL DEFAULT 0");
+  addColumnIfMissing("modules", "duree_secondes", "duree_secondes INTEGER NOT NULL DEFAULT 0");
+  addColumnIfMissing("modules", "video_ref", "video_ref TEXT NOT NULL DEFAULT ''");
+  addColumnIfMissing("modules", "contenu", "contenu TEXT NOT NULL DEFAULT ''");
+});
+runMigrations.immediate();
 
 export const db = drizzle(sqlite, { schema });
 export { schema };

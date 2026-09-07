@@ -29,6 +29,7 @@ export const formations = sqliteTable("formations", {
   dureeHeures: real("duree_heures").notNull().default(0),
   methodesPedagogiques: text("methodes_pedagogiques").notNull().default(""),
   modalitesEvaluation: text("modalites_evaluation").notNull().default(""),
+  modalitesAccompagnement: text("modalites_accompagnement").notNull().default(""),
   prixCents: integer("prix_cents").notNull().default(0),
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });

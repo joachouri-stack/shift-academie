@@ -169,16 +169,29 @@ export default async function FormationAdminPage({
                 className={styles.input}
               />
             </label>
+            <label className={styles.lbl}>
+              Modalités d&rsquo;accompagnement (pour le dossier OPCO)
+              <textarea
+                name="modalitesAccompagnement"
+                defaultValue={formation.modalitesAccompagnement}
+                rows={3}
+                placeholder="Ex. Tutorat asynchrone illimité (réponse sous 48 h) · 1 session live collective de Q&R par semaine · suivi individualisé de la progression."
+                className={styles.input}
+              />
+            </label>
 
             <button type="submit" className={styles.btnPrimary}>
               Enregistrer
             </button>
           </form>
-          <p className={styles.hintNote}>
+          <div className={styles.navRow}>
             <Link href={`/admin/programme/${formation.id}`} className={styles.reportLink}>
-              Voir / exporter le programme (PDF conforme OPCO) →
+              Programme (PDF) →
             </Link>
-          </p>
+            <Link href={`/admin/dossier/${formation.id}`} className={styles.reportLink}>
+              Dossier OPCO complet (PDF) →
+            </Link>
+          </div>
         </div>
 
         {/* Modules */}
