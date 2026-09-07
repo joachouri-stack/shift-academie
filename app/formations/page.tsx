@@ -9,7 +9,7 @@ import styles from "./formations.module.css";
 export const metadata: Metadata = {
   title: "Formations",
   description:
-    "Le catalogue des formations [Shift] Académie. Des parcours concrets pour monter en compétences avec l'IA — salariés, demandeurs d'emploi, entrepreneurs. Organisme certifié Qualiopi.",
+    "Le catalogue des formations [Shift] Académie : création d'entreprise, intelligence artificielle appliquée à votre métier, montée en compétences. Formations à distance certifiées Qualiopi.",
   alternates: { canonical: "/formations" },
 };
 
