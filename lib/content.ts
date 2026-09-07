@@ -7,7 +7,7 @@
 export const site = {
   name: "[Shift] Académie",
   shortName: "Shift",
-  baseline: "La formation IA qui parle le langage du terrain.",
+  baseline: "La formation qui parle le langage du terrain.",
   description:
     "Organisme de formation certifié Qualiopi. Développez des compétences concrètes — création d'entreprise, IA appliquée à votre métier — que vous soyez salarié, en recherche d'emploi ou entrepreneur.",
   url: "https://shift-academie.fr",
@@ -186,7 +186,7 @@ export const fondateur = {
   nom: "Johane Achouri",
   role: "Fondateur · Formateur certifié RS6776",
   initiales: "JA",
-  baseline: "La formation IA qui parle le langage du terrain.",
+  baseline: "La formation qui parle le langage du terrain.",
   texte:
     "J'ai créé [Shift] Académie parce que j'en avais assez de voir des professionnels talentueux perdre des heures sur de la paperasse, alors qu'ils pourraient être sur le chantier — ou avec leur famille.",
   expertises: [
