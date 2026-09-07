@@ -68,6 +68,22 @@
   margin-left: auto;
 }
 
+.logoutBtn {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 0.5rem 0.9rem;
+  border: none;
+  background: none;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: color var(--t) var(--ease), background-color var(--t) var(--ease);
+}
+.logoutBtn:hover {
+  color: var(--noir);
+  background: rgba(10, 10, 15, 0.04);
+}
+
 /* Burger */
 .burger {
   display: inline-flex;
@@ -148,12 +164,21 @@
 }
 
 .mobileSecondary {
+  display: block;
+  width: 100%;
   text-align: center;
   margin-top: var(--space-2);
   font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--text-muted);
   padding: 0.6rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.mobileLogoutForm {
+  width: 100%;
 }
 
 /* Scrim sous le panneau */

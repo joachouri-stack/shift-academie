@@ -5,12 +5,17 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./Logo";
 import Button from "@/components/ui/Button";
+import { logoutAction } from "@/app/connexion/actions";
 import { nav } from "@/lib/content";
 import styles from "./Header.module.css";
+
+type Me = { firstName: string; role: string } | null;
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  // undefined = pas encore connu, null = déconnecté, objet = connecté.
+  const [me, setMe] = useState<Me | undefined>(undefined);
   const pathname = usePathname();
   const panelRef = useRef<HTMLDivElement>(null);
   const burgerRef = useRef<HTMLButtonElement>(null);
@@ -27,6 +32,25 @@ export default function Header() {
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  // État de connexion (rafraîchi à chaque changement de route pour refléter
+  // une connexion / déconnexion sans rechargement complet).
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/me", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : { user: null }))
+      .then((d) => {
+        if (alive) setMe(d.user ?? null);
+      })
+      .catch(() => {
+        if (alive) setMe(null);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [pathname]);
+
+  const espaceHref = me?.role === "admin" ? "/admin" : "/espace";
 
   // Bloque le scroll body quand le menu mobile est ouvert
   useEffect(() => {
@@ -104,9 +128,27 @@ export default function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Button href="/inscription" variant="primary" size="sm" arrow>
-            S&rsquo;inscrire
-          </Button>
+          {me ? (
+            <>
+              <Link href={espaceHref} className={styles.link}>
+                Mon espace
+              </Link>
+              <form action={logoutAction}>
+                <button type="submit" className={styles.logoutBtn}>
+                  Se déconnecter
+                </button>
+              </form>
+            </>
+          ) : (
+            <>
+              <Link href="/connexion" className={styles.link}>
+                Se connecter
+              </Link>
+              <Button href="/inscription" variant="primary" size="sm" arrow>
+                S&rsquo;inscrire
+              </Button>
+            </>
+          )}
         </div>
 
         <button
@@ -147,19 +189,47 @@ export default function Header() {
               </Link>
             );
           })}
-          <Button
-            href="/inscription"
-            variant="primary"
-            size="lg"
-            arrow
-            fullWidth
-            className={styles.mobileCta}
-          >
-            S&rsquo;inscrire
-          </Button>
-          <Link href="/connexion" className={styles.mobileSecondary}>
-            Se connecter
-          </Link>
+          {me ? (
+            <>
+              <Button
+                href={espaceHref}
+                variant="primary"
+                size="lg"
+                arrow
+                fullWidth
+                className={styles.mobileCta}
+                onClick={() => setOpen(false)}
+              >
+                Mon espace
+              </Button>
+              <form action={logoutAction} className={styles.mobileLogoutForm}>
+                <button type="submit" className={styles.mobileSecondary}>
+                  Se déconnecter
+                </button>
+              </form>
+            </>
+          ) : (
+            <>
+              <Button
+                href="/inscription"
+                variant="primary"
+                size="lg"
+                arrow
+                fullWidth
+                className={styles.mobileCta}
+                onClick={() => setOpen(false)}
+              >
+                S&rsquo;inscrire
+              </Button>
+              <Link
+                href="/connexion"
+                className={styles.mobileSecondary}
+                onClick={() => setOpen(false)}
+              >
+                Se connecter
+              </Link>
+            </>
+          )}
         </nav>
       </div>
 
