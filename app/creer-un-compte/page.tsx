@@ -6,12 +6,13 @@ import AuthForm from "@/components/auth/AuthForm";
 import { getCurrentUser } from "@/lib/auth";
 
 export const metadata: Metadata = {
-  title: "Connexion — Espace apprenant",
+  title: "Créer mon compte — Espace apprenant",
   description:
-    "Connectez-vous ou créez votre compte pour accéder à votre espace apprenant [Shift] Académie.",
+    "Créez votre compte [Shift] Académie pour accéder à votre espace apprenant, suivre votre formation à distance et votre progression.",
+  alternates: { canonical: "/creer-un-compte" },
 };
 
-export default async function ConnexionPage() {
+export default async function CreerComptePage() {
   const user = await getCurrentUser();
   if (user) redirect("/espace");
 
@@ -19,13 +20,16 @@ export default async function ConnexionPage() {
     <>
       <PageHero
         eyebrow="Espace apprenant"
-        title="Connexion"
-        lead="Connectez-vous à votre espace, ou créez votre compte pour suivre votre formation à distance."
-        breadcrumb={[{ label: "Accueil", href: "/" }, { label: "Connexion" }]}
+        title="Créer mon compte"
+        lead="Créez votre accès en une minute pour suivre votre formation à distance, votre progression et récupérer votre attestation."
+        breadcrumb={[
+          { label: "Accueil", href: "/" },
+          { label: "Créer mon compte" },
+        ]}
       />
       <section className="section">
         <div className="container">
-          <AuthForm />
+          <AuthForm initialMode="register" />
           <p
             style={{
               textAlign: "center",
@@ -34,8 +38,8 @@ export default async function ConnexionPage() {
               fontSize: "var(--fs-sm)",
             }}
           >
-            Pas encore de compte ?{" "}
-            <Link href="/creer-un-compte">Créer mon compte</Link>
+            Vous avez déjà un compte ?{" "}
+            <Link href="/connexion">Se connecter</Link>
           </p>
         </div>
       </section>
