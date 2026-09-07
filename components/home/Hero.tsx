@@ -29,13 +29,8 @@ export default function Hero() {
           </p>
 
           <div className={styles.cta}>
-            <Button
-              href="/formations/creer-son-entreprise"
-              variant="gold"
-              size="lg"
-              arrow
-            >
-              Voir le programme détaillé
+            <Button href="/formations" variant="gold" size="lg" arrow>
+              Découvrir les formations
             </Button>
             <Button href="/inscription" variant="light" size="lg">
               S&rsquo;inscrire gratuitement
