@@ -146,6 +146,15 @@ export default async function EspacePage() {
                       </ol>
                     </>
                   )}
+
+                  {ins.statut === "termine" && (
+                    <Link
+                      href={`/espace/attestation/${ins.id}`}
+                      className={styles.attestBtn}
+                    >
+                      📄 Télécharger mon attestation
+                    </Link>
+                  )}
                 </article>
               ))
             )}

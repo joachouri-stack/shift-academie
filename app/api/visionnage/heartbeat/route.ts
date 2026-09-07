@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { inscriptions, modules } from "@/lib/db/schema";
 import { getCurrentUser } from "@/lib/auth";
 import { recordHeartbeat } from "@/lib/tracking";
+import { completeInscriptionIfDone } from "@/lib/completion";
 
 export const runtime = "nodejs";
 
@@ -73,6 +74,13 @@ export async function POST(request: Request) {
     moduleDureeSecondes: mod.dureeSecondes,
   });
 
+  // Si un module vient d'être validé, on vérifie si le parcours est terminé
+  // (tous les modules validés) → clôture + attestation automatiques.
+  let termine = false;
+  if (result.valide) {
+    termine = completeInscriptionIfDone(inscriptionId);
+  }
+
   // maxPositionS permet au lecteur de bloquer l'avance rapide au-delà du réel.
-  return NextResponse.json({ ok: true, ...result });
+  return NextResponse.json({ ok: true, ...result, termine });
 }
