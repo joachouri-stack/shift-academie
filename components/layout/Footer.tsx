@@ -11,6 +11,7 @@ const legalLinks = [
 
 const espaceLinks = [
   { label: "S'inscrire", href: "/inscription" },
+  { label: "Créer mon compte", href: "/creer-un-compte" },
   { label: "Se connecter", href: "/connexion" },
 ];
 
