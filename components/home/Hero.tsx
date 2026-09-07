@@ -16,15 +16,16 @@ export default function Hero() {
           </span>
 
           <h1 id="hero-title" className={styles.title}>
-            Lancez votre activité{" "}
-            <span className={styles.accentWord}>indépendante</span>, de
-            l&rsquo;idée aux <span className={styles.goldWord}>premiers clients</span>.
+            Montez en compétences avec l&rsquo;
+            <span className={styles.accentWord}>IA</span>, quel que soit votre{" "}
+            <span className={styles.goldWord}>projet professionnel</span>.
           </h1>
 
           <p className={styles.subtitle}>
-            Apprenez à utiliser l&rsquo;intelligence artificielle pour créer,
-            lancer et développer votre activité avec des outils simples,
-            concrets et directement applicables.
+            Que vous soyez salarié en quête de nouvelles compétences, en
+            recherche d&rsquo;emploi ou porteur d&rsquo;un projet d&rsquo;entreprise,
+            apprenez à utiliser l&rsquo;intelligence artificielle avec des outils
+            simples, concrets et directement applicables à votre métier.
           </p>
 
           <div className={styles.cta}>

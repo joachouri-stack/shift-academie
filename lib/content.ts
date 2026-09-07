@@ -9,7 +9,7 @@ export const site = {
   shortName: "Shift",
   baseline: "La formation IA qui parle le langage du terrain.",
   description:
-    "Organisme de formation certifié Qualiopi. Apprenez à utiliser l'IA pour créer, lancer et développer votre activité avec des outils simples et concrets.",
+    "Organisme de formation certifié Qualiopi. Montez en compétences avec l'IA, que vous soyez salarié, en recherche d'emploi ou entrepreneur. Outils simples et concrets.",
   url: "https://shift-academie.fr",
   email: "contact@shift-academie.fr",
   phone: "+33 7 83 91 50 50",
